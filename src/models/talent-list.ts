@@ -22,4 +22,20 @@ export default [
     name: "Invisibility",
     description: "You have the power to turn invisible. You can do this effortlessly for a few minutes, or mark 1 overcharge to remain invisible for up to eight hours."
   },
+  {
+    name: "Magical Pet",
+    description: "You have a magical pet, no larger than a wolf. You can decide what it looks like. It is not capable of speech, but it has the intelligence of a fairly smart animal. Ordinary people can’t see it unless you choose to allow them to. It can perform tasks for you."
+  },
+  {
+    name: "Shadow Pluck",
+    description: "For you, each person’s shadow contains objects derived from the substance of their soul. You can draw out all manner of amazing and impossible tools from people’s shadows."
+  },
+  {
+    name: "Shapeshift",
+    description: "You have both a human form and an animal form, and you can transform between them at will. Your animal form should be no bigger than an elephant, and unable to fly. Otherwise, you can do whatever the animal can."
+  },
+  {
+    name: "Super Strength",
+    description: "You can pick up, throw, and carry absurdly heavy things, such as tanker trucks and stone statues."
+  },
 ] as Talent[]

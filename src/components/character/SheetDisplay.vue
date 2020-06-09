@@ -34,13 +34,13 @@
     <h2>Talents</h2>
     <ul>
       <li v-for="talent in talents" :key="talent.name">
-        <b>{{ talent.name }}</b>: {{talent.description}}
+        <b>{{ talent.name }}</b>: <pre>{{talent.description}}</pre>
       </li>
     </ul>
     <h2>{{this.archetype.name}} Features</h2>
     <ul>
       <li v-for="feature in features" :key="feature.name">
-        <b>{{ feature.name }}</b>: {{feature.description}}
+        <b>{{ feature.name }}</b>: <pre>{{feature.description}}</pre>
       </li>
     </ul>
     <h2>{{this.archetype.name}} Abilities</h2>
