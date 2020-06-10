@@ -17,7 +17,6 @@ import SheetDisplay from '@/components/character/SheetDisplay.vue';
 export default class Character extends Vue {
   constructor() {
     super();
-    this.$store.commit('randomizeCharacter')
   }
 
   get character() {
