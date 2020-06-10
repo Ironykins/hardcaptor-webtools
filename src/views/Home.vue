@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <img alt="HARDCAPTOR SAKUGA: FULL METAL PETTICOAT" src="../assets/banner.png">
     <Character/>
   </div>
 </template>

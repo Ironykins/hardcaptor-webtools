@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button v-on:click="randomizeCharacter()">Randomize</button>
+    <button class="pure-button pure-button-primary" v-on:click="randomizeCharacter()">Randomize</button>
     <SheetDisplay :character="character"/>
   </div>
 </template>
