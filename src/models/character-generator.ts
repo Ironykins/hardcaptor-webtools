@@ -3,10 +3,11 @@ import { ExampleThemes, ExampleWeapons, ExampleMagicalMark, ExampleCostume } fro
 import ArchetypeList from '@/models/archetype-list';
 import talentList from '@/models/talent-list';
 
-export default function getRandomCharacter(): CharacterSheet {
+export default function getRandomCharacter(advancements = 0): CharacterSheet {
   const character = new CharacterSheet();
   character.name = "Randomized Character";
-  character.advancements = 5;
+
+  character.advancements = advancements;
   
   // RP Details
   character.magicTheme = ExampleThemes[Math.floor((Math.random() * ExampleThemes.length))];
