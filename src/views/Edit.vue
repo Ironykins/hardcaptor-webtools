@@ -4,6 +4,7 @@
     <AdvancementLevelEditor/>
     <RPDetailsEditor/>
     <AttributesEditor :character="character"/>
+    <TalentSelectionEditor/>
   </div>
 </template>
 
@@ -12,13 +13,15 @@ import { Component, Vue } from 'vue-property-decorator';
 import AttributesEditor from '@/components/AttributesEditor.vue';
 import RPDetailsEditor from '@/components/RPDetailsEditor.vue';
 import AdvancementLevelEditor from '@/components/AdvancementLevelEditor.vue';
+import TalentSelectionEditor from '@/components/TalentSelectionEditor.vue';
 
 @Component({
   name: "EditCharacter",
   components: {
     AttributesEditor,
     RPDetailsEditor,
-    AdvancementLevelEditor
+    AdvancementLevelEditor,
+    TalentSelectionEditor
   }
 })
 export default class EditCharacter extends Vue {
