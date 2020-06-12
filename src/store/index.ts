@@ -36,6 +36,11 @@ export default new Vuex.Store({
         state.character.advancements -= 1;
       }
     },
+    addTalent(state, {idx}) {
+      if(state.character.talents.indexOf(idx) === -1) {
+        state.character.talents.push(idx)
+      }
+    },
     removeTalent(state, {idx}) {
       if(state.character.talents[idx] !== undefined) {
         state.character.talents.splice(idx, 1)
