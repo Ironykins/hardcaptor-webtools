@@ -57,6 +57,14 @@ export class CharacterSheet {
       return Math.ceil(this.advancements/2)+6;
     }
 
+    get assignedTraits(): number {
+      let assigned = 0;
+      Object.keys(this.traits).forEach((traitKey) => {
+        assigned += this.traits[traitKey];
+      })
+      return assigned;
+    }
+
     // Total number of talents available at your advancement level.
     get availableTalents(): number {
       return Math.floor(this.advancements/2)+2;

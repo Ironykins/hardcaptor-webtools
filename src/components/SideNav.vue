@@ -3,7 +3,10 @@
     <span class="pure-menu-heading">HARDCAPTOR</span>
     <ul class="pure-menu-list">
       <li class="pure-menu-item">
-        <router-link class="pure-menu-link" to="/">Character</router-link>
+        <router-link class="pure-menu-link" to="/">View Character</router-link>
+      </li>
+      <li class="pure-menu-item">
+        <router-link class="pure-menu-link" to="/edit">Edit Character</router-link>
       </li>
       <li class="pure-menu-item menu-item-divided">
         <router-link class="pure-menu-link" to="/about">About</router-link>
@@ -28,11 +31,11 @@ export default class SideNav extends Vue {
   /*
   All anchors inside the menu should be styled like this.
   */
-  /* a {
+   a {
       color: #999;
       border: none;
       padding: 0.6em 0 0.6em 0.6em;
-  } */
+  }
 
   /*
   Remove all background/borders, since we are applying them to #menu.
@@ -61,8 +64,7 @@ export default class SideNav extends Vue {
   /*
   This styles the selected menu item `<li>`.
   */
-  .pure-menu-selected,
-  .pure-menu-heading {
+  .pure-menu-selected {
       background: #1f8dd6;
   } 
 
@@ -79,8 +81,7 @@ export default class SideNav extends Vue {
   .pure-menu-heading {
       font-size: 110%;
       color: #fff;
-      margin: 0;
-      padding: 0.5em 0.8em;
+      padding: 0.9em 0.8em;
   }
 
 </style>

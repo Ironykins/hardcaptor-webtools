@@ -1,38 +1,20 @@
 <template>
   <div class="characterSheet">
     <h1>{{ character.name }}</h1>
-    <div class="mb1"><b>Archetype:</b> {{this.archetype.name}}</div>
-    <div class="mb1"><b>Advancements Taken:</b> {{this.character.advancements}}</div>
-    <div class="mb1"><b>Magical Theme:</b> {{this.character.magicTheme}}</div>
-    <div class="mb1"><b>Magical Weapon:</b> {{this.character.magicWeapon}}</div>
-    <div class="mb1"><b>Magical Costume:</b> {{this.character.magicCostume}}</div>
-    <div class="mb1"><b>Magical Mark:</b> {{this.character.magicMark}}</div>
+    
     <div class="pure-g">
-      <div class="pure-u-1 pure-u-md-1-3"> 
+      <div class="pure-u-1 pure-u-md-1-2"> 
         <div class="p1">
-          <h2>Attributes and Traits</h2>
-          <ul>
-            <li><b>Passion</b>: {{this.character.attributes.passion}}</li>
-            <ul>
-              <li>Nerve: {{this.character.traits.nerve}}</li>
-              <li>Defiance: {{this.character.traits.defiance}}</li>
-              <li>Imagination: {{this.character.traits.imagination}}</li>
-            </ul>
-            <li><b>Logic</b>: {{this.character.attributes.logic}}</li>
-            <ul>
-              <li>Analysis: {{this.character.traits.analysis}}</li>
-              <li>Observation: {{this.character.traits.observation}}</li>
-              <li>Subterfuge: {{this.character.traits.subterfuge}}</li>
-            </ul>
-            <li><b>Devotion</b>: {{this.character.attributes.devotion}}</li>
-            <ul>
-              <li>Adaptability: {{this.character.traits.adaptability}}</li>
-              <li>Charisma: {{this.character.traits.charisma}}</li>
-              <li>Empathy: {{this.character.traits.empathy}}</li>
-            </ul>
-          </ul>
+          <Attributes :character="character"/>
         </div>
       </div>
+      <div class="pure-u-1 pure-u-md-1-2"> 
+        <div class="p1">
+          <RPDetails :character="character"/>
+        </div>
+      </div>
+    </div>
+    <div class="pure-g">
       <div class="pure-u-1 pure-u-md-1-3">
         <div class="p1">
           <h2>Talents</h2>
@@ -53,21 +35,24 @@
           </div>
         </div>
       </div>
+      <div class="pure-u-1 pure-u-md-1-3"> 
+        <h2>{{this.archetype.name}} Abilities</h2>
+        <ul>
+          <li v-for="ability in archetypeBaseAbilities" :key="ability.name">
+            <b>{{ ability.name }}</b>: {{ability.description}}
+          </li>
+          <li v-for="(abilityChoice,level) in character.abilities" :key="level">
+            <div v-if="archetype.abilityList[level+1] && archetype.abilityList[level+1][abilityChoice]">
+              <h3>Level {{level+1}} - ({{archetype.abilityTrackNames[abilityChoice]}})</h3>
+              <b>{{ archetype.abilityList[level+1][abilityChoice].name }}</b>: {{archetype.abilityList[level+1][abilityChoice].description}}
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   
 
-    <h2>{{this.archetype.name}} Abilities</h2>
-    <ul>
-      <li v-for="ability in archetypeBaseAbilities" :key="ability.name">
-        <b>{{ ability.name }}</b>: {{ability.description}}
-      </li>
-      <li v-for="(abilityChoice,level) in character.abilities" :key="level">
-        <div v-if="archetype.abilityList[level+1] && archetype.abilityList[level+1][abilityChoice]">
-          <h3>Level {{level+1}} - ({{archetype.abilityTrackNames[abilityChoice]}})</h3>
-          <b>{{ archetype.abilityList[level+1][abilityChoice].name }}</b>: {{archetype.abilityList[level+1][abilityChoice].description}}
-        </div>
-      </li>
-    </ul>
+
   </div>
 </template>
 
@@ -76,8 +61,15 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { CharacterSheet, Archetype, Talent, Feature, Ability } from '@/models/character-schema';
 import ArchetypeList from '@/models/archetype-list';
 import talentList from '@/models/talent-list';
+import RPDetails from '@/components/character/RPDetails.vue';
+import Attributes from '@/components/character/Attributes.vue';
 
-@Component
+@Component({
+  components: {
+    RPDetails,
+    Attributes
+  },
+})
 export default class SheetDisplay extends Vue {
   @Prop() private character!: CharacterSheet;
   
