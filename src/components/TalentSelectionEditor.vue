@@ -14,7 +14,7 @@
         <span class="close" v-on:click="hideTalentModal">&times;</span>
         <h3>Select Talents</h3>
         <div v-for="(talent, idx) in allTalents" :key="talent.name">
-          <div class="talentOption" v-on:click="addTalent(idx)" v-bind:class="{selected: talentSelected(idx)}">
+          <div class="talentOption" v-on:click="toggleTalent(idx)" v-bind:class="{selected: talentSelected(idx)}">
             <p>
               <b>{{ talent.name }}</b>: {{talent.description}}
             </p>
@@ -65,8 +65,14 @@ export default class AttributesEditor extends Vue {
     return this.$store.commit('removeTalent', {idx})
   }
 
-  addTalent(idx: number) {
-    return this.$store.commit('addTalent', {idx})
+  toggleTalent(idx: number) {
+    const selectedIdx = this.$store.state.character.talents.indexOf(idx);
+    if(selectedIdx !== -1) {
+      return this.$store.commit('removeTalent', {idx: selectedIdx})
+    }
+
+    if(this.$store.state.character.talents.length < this.$store.state.character.availableTalents)
+      return this.$store.commit('addTalent', {idx})
   }
 }
 </script>
