@@ -5,6 +5,8 @@
     <RPDetailsEditor/>
     <AttributesEditor :character="character"/>
     <TalentSelectionEditor/>
+    <FeatureSelectionEditor/>
+    <AbilitySelectionEditor/>
   </div>
 </template>
 
@@ -14,6 +16,8 @@ import AttributesEditor from '@/components/AttributesEditor.vue';
 import RPDetailsEditor from '@/components/RPDetailsEditor.vue';
 import AdvancementLevelEditor from '@/components/AdvancementLevelEditor.vue';
 import TalentSelectionEditor from '@/components/TalentSelectionEditor.vue';
+import FeatureSelectionEditor from '@/components/FeatureSelectionEditor.vue';
+import AbilitySelectionEditor from '@/components/AbilitySelectionEditor.vue';
 
 @Component({
   name: "EditCharacter",
@@ -21,7 +25,9 @@ import TalentSelectionEditor from '@/components/TalentSelectionEditor.vue';
     AttributesEditor,
     RPDetailsEditor,
     AdvancementLevelEditor,
-    TalentSelectionEditor
+    TalentSelectionEditor,
+    FeatureSelectionEditor,
+    AbilitySelectionEditor
   }
 })
 export default class EditCharacter extends Vue {

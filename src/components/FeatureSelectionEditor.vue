@@ -1,22 +1,22 @@
 <template>
   <div>
-    <h3>Available Talents: {{availableTalents - talents.length}}</h3>
-    <div v-for="(talent, idx) in talents" :key="talent.name">
+    <h3>Available Features: {{availableFeatures - features.length}}</h3>
+    <div v-for="(features, idx) in features" :key="features.name">
       <p>
-        <button v-on:click="removeTalent(idx)">Remove</button>
-        <b>{{ talent.name }}</b>: {{talent.description}}
+        <button v-on:click="removeFeature(idx)">Remove</button>
+        <b>{{ features.name }}</b>: {{features.description}}
       </p>
     </div>
-    <button v-on:click="showTalentModal">Add Talent</button>
+    <button v-on:click="showModal">Edit</button>
 
     <div id="talentModal" class="modal" v-bind:class="{active: displayModal}">
       <div class="modal-content">
-        <span class="close" v-on:click="hideTalentModal">&times;</span>
-        <h3>Select {{availableTalents}} Talents</h3>
-        <div v-for="(talent, idx) in allTalents" :key="talent.name">
-          <div class="talentOption" v-on:click="toggleTalent(idx)" v-bind:class="{selected: talentSelected(idx)}">
+        <span class="close" v-on:click="hideModal">&times;</span>
+        <h3>Select {{availableFeatures}} {{availableFeatures === 1 ? "Feature" : "Features" }}</h3>
+        <div v-for="(feature, idx) in allFeatures" :key="feature.name">
+          <div class="talentOption" v-on:click="toggleFeature(idx)" v-bind:class="{selected: featureSelected(idx)}">
             <p>
-              <b>{{ talent.name }}</b>: {{talent.description}}
+              <b>{{ feature.name }}</b>: {{feature.description}}
             </p>
           </div>
         </div>
@@ -27,52 +27,52 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Talent } from '@/models/character-schema';
-import talentList from '@/models/talent-list';
+import { Feature } from '@/models/character-schema';
+import archetypeList from '@/models/archetype-list';
 
 @Component
-export default class AttributesEditor extends Vue {
+export default class FeatureSelectionEditor extends Vue {
   private displayModal = false;
 
-  get allTalents(): Talent[] {
-    return talentList;
+  get allFeatures(): Feature[] {
+    return archetypeList[this.$store.state.character.archetypeIdx].featureList;
   }
 
   // True if the character has this talent marked as selected.
-  private talentSelected(idx: number): boolean {
-    return this.$store.state.character.talents.indexOf(idx) !== -1;
+  private featureSelected(idx: number): boolean {
+    return this.$store.state.character.features.indexOf(idx) !== -1;
   }
 
-  get availableTalents() {
-    return this.$store.state.character.availableTalents;
+  get availableFeatures() {
+    return this.$store.state.character.availableFeatures;
   }
 
-  get talents(): Talent[] {
-    return this.$store.state.character.talents.map((talentIdx: number) => {
-      return talentList[talentIdx];
+  get features(): Feature[] {
+    return this.$store.state.character.features.map((featureIdx: number) => {
+      return archetypeList[this.$store.state.character.archetypeIdx].featureList[featureIdx]
     })
   }
 
-  hideTalentModal() {
+  hideModal() {
     this.displayModal = false;
   }
 
-  showTalentModal() {
+  showModal() {
     this.displayModal = true;
   }
 
-  removeTalent(idx: number) {
-    return this.$store.commit('removeTalent', {idx})
+  removeFeature(idx: number) {
+    return this.$store.commit('removeFeature', {idx})
   }
 
-  toggleTalent(idx: number) {
-    const selectedIdx = this.$store.state.character.talents.indexOf(idx);
+  toggleFeature(idx: number) {
+    const selectedIdx = this.$store.state.character.features.indexOf(idx);
     if(selectedIdx !== -1) {
-      return this.$store.commit('removeTalent', {idx: selectedIdx})
+      return this.$store.commit('removeFeature', {idx: selectedIdx})
     }
 
-    if(this.$store.state.character.talents.length < this.$store.state.character.availableTalents)
-      return this.$store.commit('addTalent', {idx})
+    if(this.$store.state.character.features.length < this.$store.state.character.availableFeatures)
+      return this.$store.commit('addFeature', {idx})
   }
 }
 </script>

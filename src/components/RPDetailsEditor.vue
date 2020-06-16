@@ -17,9 +17,15 @@
         <label for="character-costume">Magical Costume</label>
         <input id="character-costume" @input="updateField" :value="costume" placeholder="Magical Costume"/>
       </div>
-        <div class="pure-control-group">
+      <div class="pure-control-group">
         <label for="character-mark">Magical Mark</label>
         <textarea id="character-mark" rows="5" @input="updateField" :value="mark" placeholder="Magical Mark"></textarea>
+      </div>
+      <div class="pure-control-group">
+        <label for="character-archetype">Archetype</label>
+        <select id="character-archetype" @input="updateArchetype" :value="archetype">
+          <option v-for="(archetype, idx) in archetypes" :key="archetype.name" :value="idx">{{archetype.name}}</option>
+        </select>
       </div>
     </fieldset>
   </form>
@@ -27,6 +33,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import archetypeList from '@/models/archetype-list';
 
 @Component
 export default class RPDetailsEditor extends Vue {
@@ -35,6 +42,8 @@ export default class RPDetailsEditor extends Vue {
   get weapon() { return this.$store.state.character.magicWeapon; }
   get costume() { return this.$store.state.character.magicCostume; }
   get mark() { return this.$store.state.character.magicMark; }
+  get archetype() { return this.$store.state.character.archetypeIdx; }
+  get archetypes() {return archetypeList;}
 
   updateField(e: InputEvent) {
     if(e && e.target) {
@@ -42,6 +51,10 @@ export default class RPDetailsEditor extends Vue {
       const key = id.replace("character-", "");
       this.$store.commit('editRPDetails', {[key]: (e.target as HTMLInputElement).value || null})
     }
+  }
+
+  updateArchetype(e: InputEvent) {
+    this.$store.commit('editArchetype', {archetypeIdx: (e.target as HTMLInputElement).value || null})
   }
 }
 </script>

@@ -1,5 +1,4 @@
 // Data structures that represent hardcaptor characters
-
 export class CharacterSheet {
     /////////////
     // RP Details
