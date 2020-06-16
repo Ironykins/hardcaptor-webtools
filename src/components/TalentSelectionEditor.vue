@@ -12,12 +12,14 @@
     <div id="talentModal" class="modal" v-bind:class="{active: displayModal}">
       <div class="modal-content">
         <span class="close" v-on:click="hideTalentModal">&times;</span>
-        <h3>Select {{availableTalents}} Talents</h3>
-        <div v-for="(talent, idx) in allTalents" :key="talent.name">
-          <div class="talentOption" v-on:click="toggleTalent(idx)" v-bind:class="{selected: talentSelected(idx)}">
-            <p>
-              <b>{{ talent.name }}</b>: {{talent.description}}
-            </p>
+        <h3>{{talents.length}} / {{availableTalents}} Talents Selected</h3>
+        <div class="modal-body">
+          <div v-for="(talent, idx) in allTalents" :key="talent.name">
+            <div class="talentOption" v-on:click="toggleTalent(idx)" v-bind:class="{selected: talentSelected(idx)}">
+              <p>
+                <b>{{ talent.name }}</b>: {{talent.description}}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -87,7 +89,6 @@ export default class AttributesEditor extends Vue {
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
@@ -100,7 +101,7 @@ export default class AttributesEditor extends Vue {
 .modal-content {
   background-color: #fefefe;
   z-index: 1002;
-  margin: 15% auto;
+  margin: 5% auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
@@ -108,6 +109,11 @@ export default class AttributesEditor extends Vue {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animatetop;
   animation-duration: 0.4s
+}
+
+.modal-body {
+  overflow: auto; /* Enable scroll if needed */
+  max-height: 80vh;
 }
 
 /* Add Animation */

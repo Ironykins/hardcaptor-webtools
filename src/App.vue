@@ -1,10 +1,10 @@
 <template>
-  <div id="app">
-    <a href="#menu" id="menuLink" class="menu-link">
-        <!-- Hamburger icon -->
-        <span></span>
+  <div id="app" v-bind:class="{active: sidenavActive}">
+    <a v-on:click="toggleSidenav" id="menuLink" class="menu-link">
+      <!-- Hamburger icon -->
+      <span></span>
     </a>
-    <div id="sidenav">
+    <div id="sidenav" v-bind:class="{active: sidenavActive}">
       <SideNav/>
     </div>
     <div id="content">
@@ -13,27 +13,32 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 import SideNav from '@/components/SideNav.vue'
 
-export default {
-  name: 'App',
-  
+@Component({
+  name: "App",
   components: {
     SideNav
+  }
+})
+export default class App extends Vue {
+  private sidenavActive = false;
+
+  private toggleSidenav() {
+    this.sidenavActive = !this.sidenavActive;
   }
 }
 </script>
 
-
 <style>
-
 #content {
   margin: 8px;
+  margin-top: 4em;
 }
 
 #app {
-
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -47,7 +52,7 @@ export default {
     padding-left: 0;
 }
 
-#app.active #menu {
+#app.active #sidenav {
     left: 150px;
     width: 150px;
 }
@@ -110,7 +115,6 @@ export default {
         .menu-link span:after {
             margin-top: 0.6em;
         }
-
 
 @media (min-width: 48em) {
     #app {
