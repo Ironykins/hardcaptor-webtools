@@ -27,6 +27,12 @@
           <option v-for="(archetype, idx) in archetypes" :key="archetype.name" :value="idx">{{archetype.name}}</option>
         </select>
       </div>
+      <div class="pure-control-group">
+        <label for="character-archetype">Advancements</label>
+        {{advancements}}
+        <button type="button" v-on:click="removeAdvancement()">-</button>
+        <button type="button" v-on:click="addAdvancement()">+</button>
+      </div>
     </fieldset>
   </form>
 </template>
@@ -55,6 +61,19 @@ export default class RPDetailsEditor extends Vue {
 
   updateArchetype(e: InputEvent) {
     this.$store.commit('editArchetype', {archetypeIdx: (e.target as HTMLInputElement).value || null})
+  }
+
+  // Advancement Stuff
+  get advancements() {
+    return this.$store.state.character.advancements;
+  }
+
+  addAdvancement() {
+    return this.$store.commit("addAdvancement");
+  }
+
+  removeAdvancement() {
+    return this.$store.commit("removeAdvancement");
   }
 }
 </script>

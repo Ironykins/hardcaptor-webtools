@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <Character/>
   </div>
 </template>
@@ -9,7 +9,7 @@
 import Character from '@/components/character/Character.vue'
 
 export default {
-  name: 'Home',
+  name: 'CharacterSummary',
   
   components: {
     Character

@@ -3,10 +3,10 @@
     <span class="pure-menu-heading">HARDCAPTOR</span>
     <ul class="pure-menu-list">
       <li class="pure-menu-item">
-        <router-link class="pure-menu-link" to="/">View Character</router-link>
+        <router-link class="pure-menu-link" to="/">Edit Character</router-link>
       </li>
       <li class="pure-menu-item">
-        <router-link class="pure-menu-link" to="/edit">Edit Character</router-link>
+        <router-link class="pure-menu-link" to="/summary">View Character</router-link>
       </li>
       <li class="pure-menu-item menu-item-divided">
         <router-link class="pure-menu-link" to="/about">About</router-link>

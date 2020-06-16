@@ -1,6 +1,8 @@
 <template>
   <div class="characterSheet">
-    <h1>{{ character.name }}</h1>
+    <div class="page-header">
+      <h1>{{ character.name }}</h1>
+    </div>
     
     <div class="pure-g">
       <div class="pure-u-1 pure-u-md-1-2"> 
@@ -93,6 +95,10 @@ export default class SheetDisplay extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.page-header {
+  text-align: center;
+}
+
 h3 {
   margin: 40px 0 0;
 }

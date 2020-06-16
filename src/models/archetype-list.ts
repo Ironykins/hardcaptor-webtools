@@ -18,6 +18,15 @@ export default [
         name: "Knight’s Vigil",
         description: "As a downtime action, you may designate a person or object to be your Ward. They remain your ward until harm befalls them or you designate a new ward. If the GM puts your ward in danger, they must tell you, and you can decide to start a scene in which you show up at the last possible moment to try to save or protect them."
       },
+      {
+        name: "Petrifying Seal",
+        description: "You may spend a minute and mark 1 overcharge to turn any non magical being into a stone statue. The being must be willing or helpless. While in this state, they cannot be detected or harmed by magic. They are unconscious, but they can still dream. They remain in this state for 1 year or until you end the effect by marking 1 overcharge and touching them."
+      },
+      {
+        name: "Knight’s Reward",
+        description: "Whenever an ally activates an experience trigger for their archetype or experiences hope fallout, you may mark 2 hope."
+      },
+      
     ],
     abilityTrackNames: ["Shieldbearer", "Champion"],
     abilityList: [
@@ -69,6 +78,28 @@ export default [
           description: "Once per combat you may spend 1 die to clear 1 point of harm from yourself or gain 2 guard tokens."
         }
       ],
+      // Level 4
+      [
+        {
+          name: "Bulwark",
+          description: "You begin combat with 2 guard tokens, and allies that can see and hear you begin combat with 1 guard token."
+        },
+        {
+          name: "Indomitable",
+          description: "When you grant another player a guard token for the first time in a round, you may also gain one guard token."
+        },
+      ],
+      // Level 5
+      [
+        {
+          name: "Barrier",
+          description: "During the action phase, you may mark 1 overcharge and spend a straight to create a barrier. Enemies may not attack liabilities or magical girls until the barrier is destroyed. The barrier is destroyed when it takes 4 harm, and the opposition may spend its power to inflict harm on the barrier."
+        },
+        {
+          name: "Grin and Bear It",
+          description: "Whenever you would fill your last harm clock segment, roll a d6. On a result of 4-6, you may choose not to fill the segment."
+        },
+      ],
     ]
   },
   {
@@ -87,6 +118,14 @@ export default [
         name: "Second Chance",
         description: "Once per scene, you may mark 1 overcharge to allow an ally who can see and hear you to reroll a test they just made. They make this reroll with 1 fewer die."
       },
+      {
+        name: "Empath",
+        description: "You can read the emotions of ordinary people, and you always know when they are lying to you. If you attempt to read the mind of a magical girl or magical creature, they know immediately. They can either allow you to read their thoughts, block your attempt, or lie to you and feed you false information."
+      },
+      {
+        name: "Overwhelming Charisma",
+        description: "Non-magical strangers perceive you as incredibly charming, charismatic, and attractive. They are well-disposed, inclined to trust you, and will happily do favours for you. Additionally, take +1 die whenever being charming would aid you in a test."
+      }
     ],
     abilityTrackNames: ["Captain", "Medic"],
     abilityList: [
@@ -143,6 +182,28 @@ export default [
           name: "Sympathetic Bond",
           description: "The first time in a round that you gain a guard token, another ally of your choice may also gain a guard token."
         }
+      ],
+      // Level 4
+      [
+        {
+          name: "Press the Advantage",
+          description: "During the action phase, you may remove a positive status effect from a magical girl. That magical girl may then remove a die from the opposition’s dice pool."
+        },
+        {
+          name: "Do No Harm",
+          description: "Once per round, during the action phase, you may grant 1 guard token to a magical girl or liability. If you do, roll 1 die into an enemy dice pool."
+        },
+      ],
+      // Level 5
+      [
+        {
+          name: "Seize Victory",
+          description: "If all players have a status effect, a finisher requires three of a kind in each player’s hand instead of four."
+        },
+        {
+          name: "Coordinated Feint",
+          description: "Once per combat, at the end of the roll phase, you may suffer a bane to go back to the start of the roll phase. Players re-roll all their dice as normal."
+        },
       ],
     ]
   },

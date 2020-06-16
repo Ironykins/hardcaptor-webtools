@@ -1,11 +1,21 @@
 <template>
   <div class="edit">
-    <button type="button" class="pure-button pure-button-primary" v-on:click="randomizeCharacter()">Randomize</button>
-    <AdvancementLevelEditor/>
+    <div class="page-header">
+      <h2>Character Creator</h2>
+      <button type="button" class="pure-button pure-button-primary" v-on:click="randomizeCharacter()">Randomize</button>
+    </div>
     <RPDetailsEditor/>
+    <div class="pure-g">
+      <div class="pure-u-1 pure-u-md-1-2">
+        <TalentSelectionEditor/>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-2">
+        <FeatureSelectionEditor/>
+      </div>
+    </div>
     <AttributesEditor :character="character"/>
-    <TalentSelectionEditor/>
-    <FeatureSelectionEditor/>
+    
+    
     <AbilitySelectionEditor/>
   </div>
 </template>
@@ -14,7 +24,6 @@
 import { Component, Vue } from 'vue-property-decorator';
 import AttributesEditor from '@/components/AttributesEditor.vue';
 import RPDetailsEditor from '@/components/RPDetailsEditor.vue';
-import AdvancementLevelEditor from '@/components/AdvancementLevelEditor.vue';
 import TalentSelectionEditor from '@/components/TalentSelectionEditor.vue';
 import FeatureSelectionEditor from '@/components/FeatureSelectionEditor.vue';
 import AbilitySelectionEditor from '@/components/AbilitySelectionEditor.vue';
@@ -24,7 +33,6 @@ import AbilitySelectionEditor from '@/components/AbilitySelectionEditor.vue';
   components: {
     AttributesEditor,
     RPDetailsEditor,
-    AdvancementLevelEditor,
     TalentSelectionEditor,
     FeatureSelectionEditor,
     AbilitySelectionEditor
@@ -42,3 +50,9 @@ export default class EditCharacter extends Vue {
   }
 }
 </script>
+
+<style scoped>
+.page-header {
+  text-align: center;
+}
+</style>

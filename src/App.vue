@@ -35,7 +35,6 @@ export default class App extends Vue {
 <style>
 #content {
   margin: 8px;
-  margin-top: 4em;
 }
 
 #app {
