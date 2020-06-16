@@ -68,10 +68,10 @@ export default new Vuex.Store({
     selectAbility(state, {level, idx}) {
       // Determine if we can have anything for that level.
       if(level < state.character.availableAbilities) {
-        state.character.abilities = {
-          ...state.character.abilities,
-          [level]: idx
-        }
+        state.character.abilities = [
+          ...state.character.abilities
+        ]
+        state.character.abilities[level] = idx;
       }
     }
   },

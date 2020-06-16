@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>Abilities</h3>
-    <table class="pure-table">
+    <table class="pure-table archetype-table">
       <thead>
         <td colspan="3">
           <b>{{archetype.name}}</b>
@@ -18,10 +18,10 @@
       </tr>
       <thead>
         <td><b>{{archetype.abilityTrackNames[0]}}</b></td>
-        <td></td>
+        <td><b>Level</b></td>
         <td><b>{{archetype.abilityTrackNames[1]}}</b></td>
       </thead>
-      <tr v-for="(abilityLevel, idx) in archetype.abilityList.slice(1)" :key="idx">
+      <tr class="ability-row" v-bind:class="{disabled: levelDisabled(idx+1)}" v-for="(abilityLevel, idx) in archetype.abilityList.slice(1)" :key="idx">
         <td v-on:click="selectAbility(idx, 0)" v-bind:class="{selected: abilitySelected(idx, 0)}">
           <b>{{abilityLevel[0].name}}</b> - {{abilityLevel[0].description}}
         </td>
@@ -58,24 +58,34 @@ export default class AbilitySelectionEditor extends Vue {
     return this.$store.commit('selectAbility', {level, idx: option})
   }
 
-  removeFeature(idx: number) {
-    return this.$store.commit('removeFeature', {idx})
+  private levelDisabled(idx: number): boolean {
+    return idx > this.$store.state.character.availableAbilities;
   }
 
-  toggleFeature(idx: number) {
-    const selectedIdx = this.$store.state.character.features.indexOf(idx);
-    if(selectedIdx !== -1) {
-      return this.$store.commit('removeFeature', {idx: selectedIdx})
-    }
-
-    if(this.$store.state.character.features.length < this.$store.state.character.availableFeatures)
-      return this.$store.commit('addFeature', {idx})
-  }
 }
 </script>
 
 <style scoped>
+.archetype-table > tr > td {
+  vertical-align: top;
+}
+
+.archetype-table > thead {
+  text-align: center;
+}
+
 .selected {
-  background-color: rgba(182, 182, 182, 0.931);
+  /* background-color: rgba(182, 182, 182, 0.931); */
+  background: #c58dc0;
+}
+
+.ability-row {
+  cursor: pointer;
+}
+
+.ability-row.disabled {
+  color: darkgrey;
+  background: #dddddd;
+  cursor: not-allowed;
 }
 </style>
