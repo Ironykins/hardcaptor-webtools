@@ -12,6 +12,9 @@
         <router-link class="pure-menu-link" to="/enemyref">Enemy Abilities</router-link>
       </li>
       <li class="pure-menu-item">
+        <router-link class="pure-menu-link" to="/magicalburst">Magical Burst</router-link>
+      </li>
+      <li class="pure-menu-item">
         <router-link class="pure-menu-link" to="/about">About</router-link>
       </li>
     </ul>

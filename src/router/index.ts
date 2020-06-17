@@ -8,14 +8,14 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Edit',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: Edit
   },
   {
     path: '/summary',
     name: 'Character Summary',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "summary" */ '../views/CharacterSummary.vue')
   },
   {
@@ -26,7 +26,12 @@ const routes: Array<RouteConfig> = [
   {
     path: '/enemyref',
     name: 'Enemy Abilities',
-    component: () => import(/* webpackChunkName: "about" */ '../views/EnemyAbilities.vue')
+    component: () => import(/* webpackChunkName: "enemyref" */ '../views/EnemyAbilities.vue')
+  },
+  {
+    path: '/magicalburst',
+    name: 'Magical Burst',
+    component: () => import(/* webpackChunkName: "magicalburst" */ '../views/MagicalBurst.vue')
   }
 ]
 
