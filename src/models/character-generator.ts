@@ -1,11 +1,13 @@
 import { CharacterSheet } from '@/models/character-schema';
-import { ExampleThemes, ExampleWeapons, ExampleMagicalMark, ExampleCostume } from '@/models/rp-example-details';
+import { ExampleThemes, ExampleWeapons, ExampleMagicalMark, ExampleCostume, FamilyNames, GivenNames } from '@/models/rp-example-details';
 import ArchetypeList from '@/models/archetype-list';
 import talentList from '@/models/talent-list';
 
 export default function getRandomCharacter(advancements = 0): CharacterSheet {
   const character = new CharacterSheet();
-  character.name = "Randomized Character";
+  character.name = FamilyNames[Math.floor((Math.random() * FamilyNames.length))]
+    + " " + GivenNames[Math.floor((Math.random() * GivenNames.length))];
+
 
   character.advancements = advancements;
   

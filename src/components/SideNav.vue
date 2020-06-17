@@ -9,6 +9,9 @@
         <router-link class="pure-menu-link" to="/summary">View Character</router-link>
       </li>
       <li class="pure-menu-item menu-item-divided">
+        <router-link class="pure-menu-link" to="/enemyref">Enemy Abilities</router-link>
+      </li>
+      <li class="pure-menu-item">
         <router-link class="pure-menu-link" to="/about">About</router-link>
       </li>
     </ul>
@@ -26,8 +29,6 @@ export default class SideNav extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-
   /*
   All anchors inside the menu should be styled like this.
   */

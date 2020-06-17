@@ -22,13 +22,13 @@
         <td><b>{{archetype.abilityTrackNames[1]}}</b></td>
       </thead>
       <tr class="ability-row" v-bind:class="{disabled: levelDisabled(idx+1)}" v-for="(abilityLevel, idx) in archetype.abilityList.slice(1)" :key="idx">
-        <td v-on:click="selectAbility(idx, 0)" v-bind:class="{selected: abilitySelected(idx, 0)}">
+        <td class="ability-cell" v-on:click="selectAbility(idx, 0)" v-bind:class="{selected: abilitySelected(idx, 0)}">
           <b>{{abilityLevel[0].name}}</b> - {{abilityLevel[0].description}}
         </td>
-        <td>
+        <td class="centered">
           {{idx+1}}
         </td>
-        <td v-on:click="selectAbility(idx, 1)" v-bind:class="{selected: abilitySelected(idx, 1)}">
+        <td class="ability-cell" v-on:click="selectAbility(idx, 1)" v-bind:class="{selected: abilitySelected(idx, 1)}">
           <b>{{abilityLevel[1].name}}</b> - {{abilityLevel[1].description}}
         </td>
       </tr>
@@ -66,6 +66,14 @@ export default class AbilitySelectionEditor extends Vue {
 </script>
 
 <style scoped>
+.centered {
+  text-align: center;
+}
+
+.ability-cell {
+  width: 50%;
+}
+
 .archetype-table > tr > td {
   vertical-align: top;
 }
