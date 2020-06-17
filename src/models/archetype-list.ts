@@ -207,4 +207,205 @@ export default [
       ],
     ]
   },
+
+
+  {
+    name: "Muse",
+    // Mark 3 experience when you...
+    expTriggers: [
+      "Inspire someone else to make a drastic positive change in their own life",
+      "Regain your inner light after losing it"
+    ],
+    featureList: [
+      {
+        name: "Muse's Revelry",
+        description: `
+        When you perform music, display your art, make a speech, or otherwise express yourself to a group of people, roll a test with 3 dice.
+        1-3: You do not have the desired effect. The crowd’s energy fades, and the meaning of your performance is somehow lost or twisted.
+        4-5: You evoke strong positive emotions in your audience. They are enthralled by you and your performance will have a lasting impact on them.
+        6: The group’s inspiration becomes magical in nature. A group of ordinary people inspired this way can even stand against a magical foe. If this group is present in combat, they are not considered a liability. Instead, they may remove your choice of 1 die per round from an enemy dice pool.
+        Critical: As above, but the group is excited to a fervor. They will need two days rest after the performance.`
+      },
+      {
+        name: "Illusionist",
+        description: "You may create and control realistic three dimensional images complete with sound. You may also alter your own voice, face, and costume to anything you desire. Physical interaction with any of these effects reveals them to be incorporeal illusions."
+      },
+      {
+        name: "Safehaven",
+        description: "You gain access to an extradimensional space. The space is about the size of a large loft apartment, and you can choose exactly what it looks like. You may travel to this space from anywhere by spending 10 minutes in quiet concentration, and you may take any number of willing characters with you. The space is comfortable and well-equipped with any mundane supplies and tools. You may also designate a space in the real world that can be used as an entrance to this extradimensional space, but only for the characters you specify."
+      },
+      {
+        name: "Talk to Anything",
+        description: "With your magic, you can speak to anything, including animals and inanimate objects. You might ask a playground what it felt last night, ask the squirrels if they have heard any rumors lately, or ask that the crows bring you specific objects. Though effective, communication with these entities is often cryptic and obtuse."
+      },
+    ],
+    abilityTrackNames: ["Harmony", "Discord"],
+    abilityList: [
+      // Level 0. Everyone gets all of these.
+      [
+        {
+          name: "Muse's Inspiration",
+          description: "Up to twice per round, you may let any ally spend a die from your hand as if it were in that ally’s hand."
+        },
+        {
+          name: "Crescendo",
+          description: "During the action phase, you may spend a straight to reduce an enemy’s power to zero until the end of the round."
+        },
+        {
+          name: "Eloquent Sway",
+          description: "During the action phase, you may spend a guard token to increase or decrease the value of one die in an enemy dice pool by 1."
+        },
+      ],
+      // Level 1
+      [
+        {
+          name: "Harmonize",
+          description: "Whenever you rally, all magical girls that rallied may freely spend dice from the hands of other magical girls that also rallied as though they were in their own hands."
+        },
+        {
+          name: "Captivate",
+          description: "Whenever you rally, all enemies are captivated during the next opposition phase. While captivated, an enemy can not re-roll or change values in its dice pool without your approval, and whenever it targets a magical girl with an ability or attack, you may pick a different magical girl for it to target."
+        },
+      ],
+      // Level 2
+      [
+        {
+          name: "Refrain",
+          description: "At the end of the action phase, if at least two of your dice were spent by other players this phase, you may gain 1 guard token"
+        },
+        {
+          name: "Fermata",
+          description: "Once per round, you may spend a single die to reroll a die of equal or lesser value in an enemy’s dice pool."
+        },
+      ],
+      // Level 3
+      [
+        {
+          name: "Adagio",
+          description: "At any point during the roll phase, you may remove one die from your reserves to allow any ally an extra reroll."
+        },
+        {
+          name: "Half-Step",
+          description: "Whenever you would reroll a die in an enemy dice pool, you may instead flip it to its opposite side."
+        },
+      ],
+      // Level 4
+      [
+        {
+          name: "Cadenza",
+          description: "During the action phase, all magical girls may spend a pair. If they do, grant each magical girl the Inspired status condition."
+        },
+        {
+          name: "Leitmotif",
+          description: "Whenever an ally spends a die from your hand, set its value to 1 and return it to your hand. Allies may not spend this die again this round, even if an ability would otherwise permit it."
+        },
+      ],
+      // Level 5
+      [
+        {
+          name: "Ensemble",
+          description: "Once per combat, at the start of the action phase, you may declare that this round, you and all your allies may spend dice from any ally’s hand as though it were their own."
+        },
+        {
+          name: "Power Chord",
+          description: "You may spend three of a kind to reroll up to five dice in the opposition’s dice pool."
+        },
+      ],
+    ]
+  },
+
+
+
+  // /*Template:*/
+  // {
+  //   name: "",
+  //   // Mark 3 experience when you...
+  //   expTriggers: [
+  //     "",
+  //     ""
+  //   ],
+  //   featureList: [
+  //     {
+  //       name: "",
+  //       description: ""
+  //     },
+  //     {
+  //       name: "",
+  //       description: ""
+  //     },
+  //     {
+  //       name: "",
+  //       description: ""
+  //     },
+  //     {
+  //       name: "",
+  //       description: ""
+  //     },
+  //   ],
+  //   abilityTrackNames: ["", ""],
+  //   abilityList: [
+  //     // Level 0. Everyone gets all of these.
+  //     [
+  //       {
+  //         name: "",
+  //         description: ""
+  //       },
+  //     ],
+  //     // Level 1
+  //     [
+  //       {
+  //         name: "",
+  //         description: ""
+  //       },
+  //       {
+  //         name: "",
+  //         description: ""
+  //       },
+  //     ],
+  //     // Level 2
+  //     [
+  //       {
+  //         name: "",
+  //         description: ""
+  //       },
+  //       {
+  //         name: "",
+  //         description: ""
+  //       },
+  //     ],
+  //     // Level 3
+  //     [
+  //       {
+  //         name: "",
+  //         description: ""
+  //       },
+  //       {
+  //         name: "",
+  //         description: ""
+  //       },
+  //     ],
+  //     // Level 4
+  //     [
+  //       {
+  //         name: "",
+  //         description: ""
+  //       },
+  //       {
+  //         name: "",
+  //         description: ""
+  //       },
+  //     ],
+  //     // Level 5
+  //     [
+  //       {
+  //         name: "",
+  //         description: ""
+  //       },
+  //       {
+  //         name: "",
+  //         description: ""
+  //       },
+  //     ],
+  //   ]
+  // },
 ] as Archetype[]

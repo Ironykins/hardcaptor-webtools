@@ -30,6 +30,13 @@
       <div class="pure-u-1 pure-u-md-1-3">
         <div class="p1">
           <h2>{{this.archetype.name}} Features</h2>
+          Mark 3 Experience when you...
+          <ul>
+            <li v-for="trigger in this.archetype.expTriggers" :key="trigger">
+              {{trigger}}
+            </li>
+          </ul>
+
           <div v-for="feature in features" :key="feature.name">
             <p>
               <b>{{ feature.name }}</b>: {{feature.description}}
