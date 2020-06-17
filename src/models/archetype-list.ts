@@ -314,6 +314,223 @@ export default [
     ]
   },
 
+  {
+    name: "Oathbound",
+    // Mark 3 experience when you...
+    expTriggers: [
+      "Forgive someone who you came into conflict with as a result of your Oath",
+      "Jeopardize your Oath by prioritizing another worthwhile cause"
+    ],
+    featureList: [
+      {
+        name: "Bloodhound",
+        description: "You may mark 1 overcharge to leave a bloodhound’s mark on a target you can see and hear. You always know where to go in order to pursue a marked target, though you may not automatically know its exact location. Additionally, you have a sixth sense for things related to your oath, and are able to tell within a couple minutes of study whether a person is involved, supports it, etc."
+      },
+      {
+        name: "Tempered Soul",
+        description: "You are fully aware of your surroundings when you sleep, you can survive for up to a month without food or water or rest, and you are immune to any magical effects that would beguile or charm you. If an effect says you can’t transform into your magical form, you can instead do so by taking 1 Stress."
+      },
+      {
+        name: "Oath of Protection",
+        description: "If you allow someone to comfort you, and you have a moment of emotional vulnerability in front of them, you may add ensuring their safety to your oath. You always know when they are in danger and can track them down with an hour or two of investigation. Additionally, they gain a magical mark that grants them minor powers based on your magical theme, and can use this mark to communicate with you from anywhere."
+      },
+      {
+        name: "Memory Magic",
+        description: `
+          You are adept at manipulating the memories of others. When you attempt to alter the memory of a willing, helpless, or non magical entity, roll a test with 3 dice.
+          1-3: your memory manipulation fails. The target is aware of your manipulations as a half-remembered dream.
+          4-5: you may manipulate the target’s memory, but you may not touch memories that are particularly important, cherished, or traumatic to the target.
+          6: you may rewrite major details about the target’s memory. Altering important memories will have drastically negative effects on the target’s mental state.
+          Critical: As above, but segments of their memory bleed into yours, and you find yourself remembering things from the target’s life as if they happened to you.
+        `
+      },
+    ],
+    abilityTrackNames: ["War Maiden", "Tactician"],
+    abilityList: [
+      // Level 0. Everyone gets all of these.
+      [
+        {
+          name: "Oathbound’s Fury",
+          description: "At the end phase, if you removed at least 2 dice from any enemy dice pools this round, your reserves increase by 1 until the next end phase. (ie. you may roll 1 additional die during the roll phase)"
+        },
+        {
+          name: "Oathbound's Smite",
+          description: "During the action phase, you may spend a straight to cancel any number of dice from an enemy dice pool, as long as none of those dice share a value."
+        },
+        {
+          name: "Reckless Attack",
+          description: "You may spend a guard token to reroll any die in an enemy dice pool. If that die rolls a 1, you may remove it."
+        },
+      ],
+      // Level 1
+      [
+        {
+          name: "Frontrunner",
+          description: "Whenever you rally, you may cancel a die from the enemy’s dice pool for each other ally that rallied."
+        },
+        {
+          name: "Formation",
+          description: "Whenever you rally, you may choose an ally who also rallied. That ally gains the strengthened status effect."
+        },
+      ],
+      // Level 2
+      [
+        {
+          name: "Overextend",
+          description: "You may take 1 harm to remove a single die from an enemy’s dice pool."
+        },
+        {
+          name: "Fight for Friends",
+          description: "During the action phase, if every other player has given you a guard token this round, you may spend 4 of a kind to cancel one die from an enemy dice pool for each guard token you have."
+        },
+      ],
+      // Level 3
+      [
+        {
+          name: "Furious Rebuttal",
+          description: "At the end of the opposition phase, roll 1d6 for each segment of Stress and Harm you took this round. On a 4-6, cancel any die from an enemy dice pool."
+        },
+        {
+          name: "No Movement Wasted",
+          description: "At the end of the action phase, if you spent all the dice in your hand, you may gain 1 guard token."
+        },
+      ],
+      // Level 4
+      [
+        {
+          name: "Tempered Focus",
+          description: "As long as you have a negative status effect, gain +1 reroll during the roll phase."
+        },
+        {
+          name: "Power Strike",
+          description: "During the action phase, if you have four or more dice with the same value and you spend them as a set, they may cancel dice of any value from the enemy’s dice pool."
+        },
+      ],
+      // Level 5
+      [
+        {
+          name: "Execute",
+          description: "You may spend 5 dice with total value 25 or above to cancel all enemy dice with even values, or all enemy dice with odd values. (Your choice)"
+        },
+        {
+          name: "Incursion",
+          description: "You and at least two other allies may each spend a set of 2 and any number of guard tokens. Each player may remove a number of enemy dice equal to the number of guard tokens they spent."
+        },
+      ],
+    ]
+  },
+
+  {
+    name: "Seeker",
+    // Mark 3 experience when you...
+    expTriggers: [
+      "Experience a major shift in worldview as a result of pursuing your curiosity.",
+      "Use cleverness to overcome an enemy that previously defeated you."
+    ],
+    featureList: [
+      {
+        name: "Tinker",
+        description: `
+        You may spend a downtime action to create a magical artifact, alchemical concoction, or impossible contraption. Describe the properties of your creation, and then mark 1, 2, or 3 overcharge depending on the power of the effect. For example:
+          1 Overcharge = A clockwork bird, a love potion, a nail that magically seals a door.
+          3 Overcharge = An extra dimensional storage trunk, a magic motorcycle, a lantern that reveals the invisible, a permanent teleportation circle
+          2 Overcharge = Something in between
+        `
+      },
+      {
+        name: "Mastermind",
+        description: `You gain the following:
+          Take +1 die on any test where you are looking for evidence or investigating, and the GM may tell you something unrelated but important that you discover along the way.
+          Once per scene, you may mark 1 overcharge and describe a flashback in which your character made specific preparations for something that has arisen in the narrative. The preparations must be something your character could feasibly have done, though you don’t need to explain how you knew this would happen. You’re just that smart.
+          `
+      },
+      {
+        name: "Applied Science",
+        description: "Whenever a youma is defeated, you can choose to take a sample of its remains. These samples are unstable, and you may only safely keep one at a time. You can spend a sample to fill an extra project clock segment when you work on a project, or take +1 die on a magical trait test."
+      },
+      {
+        name: "Divination",
+        description: `
+        You may mark 1 overcharge to do one of the following:
+          Scry - Specify any location you have previously visited, and perceive it as if you were there. If the area is magically protected, your perception is clouded, hazy, and sometimes shows false information.
+          Augury - Describe an entity, location, or course of action. The GM will give you a sign of weal if the future of the entity aligns with your goals and wellbeing, or a sign of woe if it does not. Alternatively, the GM can decide to give you more specific visions or premonitions about the entity.
+        `
+      },
+    ],
+    abilityTrackNames: ["Trickster", "Scientist"],
+    abilityList: [
+      // Level 0. Everyone gets all of these.
+      [
+        {
+          name: "Pull from the Veil",
+          description: "In combat, before your first roll phase, roll one extra die separately. This is your Seeker die. At any point, before finalizing your hand, you may swap your Seeker die for a die in your reserves. The die you swapped out becomes your new seeker die. "
+        },
+        {
+          name: "Silence",
+          description: "During the action phase, you may spend a straight to disable any number of enemy abilities until the end of the round."
+        },
+        {
+          name: "Stack the Deck",
+          description: "During the action phase, you may spend 2 guard tokens to change the value of one of the dice in your hand to any value."
+        },
+      ],
+      // Level 1
+      [
+        {
+          name: "Jamming Field",
+          description: "Gain the following rally action: Choose one ability an enemy has. It loses that ability until the next end step."
+        },
+        {
+          name: "Like Clockwork",
+          description: "Whenever you rally, if each of your allies also rallied, you gain the inspired status condition."
+        },
+      ],
+      // Level 2
+      [
+        {
+          name: "Overthink",
+          description: "During the roll phase, you may suffer a bane to change one of your dice to any value. You may use this ability once per round"
+        },
+        {
+          name: "Guide Volition",
+          description: "In combat, you may spend a set of 3 to increase or reduce the value of up to 3 dice in an enemy dice pool by 1"
+        },
+      ],
+      // Level 3
+      [
+        {
+          name: "Cunning Maneuver",
+          description: "At the end of the roll phase, you may flip one of your dice to its opposite side. (This applies to your seeker die as well)"
+        },
+        {
+          name: "Calculated Strike",
+          description: "You may spend a set of 3 to remove a die of equal or lesser value from the opposition’s dice pool."
+        },
+      ],
+      // Level 4
+      [
+        {
+          name: "Seeker's Mark",
+          description: "Whenever you would cancel a die, if that die has the same value as your seeker die, you may remove it instead."
+        },
+        {
+          name: "Seeker's Gambit",
+          description: "Whenever you reroll a die in the enemy’s dice pool, if the die’s new value is equal to your seeker die’s value, you may remove it."
+        },
+      ],
+      // Level 5
+      [
+        {
+          name: "Tandem Assault",
+          description: "At the start of the action phase, if you have exactly the same hand as any of your allies, you may remove three dice from an enemy dice pool."
+        },
+        {
+          name: "Mind Control",
+          description: "You may spend five of a kind to take up to 5 dice from an enemy dice pool, roll them, and then spend them as if they were in your hand. Then remove these dice."
+        },
+      ],
+    ]
+  },
 
 
   // /*Template:*/
