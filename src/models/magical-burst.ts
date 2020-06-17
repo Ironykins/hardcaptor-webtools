@@ -51,7 +51,7 @@ export const Scars = [
   "Age Change - Your apparent age changes. If you were an adolescent girl, you might become a young adult, middle aged woman, or even an old lady.",
   "Crystal Rash - Translucent crystals start growing out of your skin. They can easily break off.",
   "Lost and Found - Random things, such as live slugs, human teeth, or loose change from a foreign country frequently appear amidst your possessions.",
-  "Lycanthropy - During the full moon, you lose control of yourself, and magically transform into a beast based on your magical theme. If you take 4 points of harm or your allies fight you (You are an enemy with Power = 2, dice pool = 8 + HEART) you transform back into a normal girl, but remain unconscious until dawn.",
+  "Lycanthropy - During the full moon, you lose control of yourself, and magically transform into a beast based on your magical theme. If you take 4 points of harm or your allies fight you (You are an enemy with Power = 2, dice pool = 8 + DEVOTION) you transform back into a normal girl, but remain unconscious until dawn.",
   "Curse of Poverty - You and have a curse that ensures you will always have a difficult time finding food, water, and shelter. This curse can affect anyone who attempts to help you, and anyone whose charity you accept. (Including family and friends.)",
   "Voracity - You need to eat an absurd amount to sustain yourself, but what you eat doesn’t necessarily have to be food. You can metabolize anything with caloric value.",
   "Compartment - There is a compartment with a simple door on your back or stomach. It seems to have random objects in it when opened.",
@@ -99,4 +99,48 @@ export function getMagicalBurst() {
   else {
     return "There is a particularly destructive explosion of magical energy. Destroy the surrounding area, and highlight casualties or losses."
   }
+}
+
+// Stick Tempest Surges in here too
+export const TempestSurges = [
+  "Lightning strikes whatever you last pointed at",
+  "The area is covered in a thick and ominous fog",
+  "You explode. Everyone in the area marks 1 harm, including you.",
+  "Gain a suit of magical armor that protects you from your next bane or point of harm",
+  "Your body turns to living metal",
+  "You say something unsettlingly personal and comforting to an ally. They mark 1 hope.",
+  "You are immediately intoxicated, as if by alcohol",
+  "The next character you speak to falls in love with you",
+  "A weaker copy of you appears nearby and attempts to kill you",
+  "You catch fire. Mark 1 Harm",
+  "A blast of cold snap-freezes the area",
+  "You teleport somewhere within 100m of your current location",
+  "A magical bird appears and offers to deliver a message to anyone for you",
+  "You and all your allies may clear 1 harm",
+  "Music loudly begins emanating from your body for the next ten minutes",
+  "Someone deceased appears and encourages you. Mark 1 Hope.",
+  "You desire blood. If you drink another’s blood in the next hour, clear 1 harm or Stress",
+  "You summon a horde of imps that is loyal to you for 1 hour",
+  "Magic ceases to function around you. Youma temporarily disappear, and all magical girls transform back for 1 hour.",
+  "Plants around you immediately grow massive",
+  "The area becomes brightly lit, and flowers bloom on every surface",
+  "The nearby landscape becomes covered in graffiti that reflects your most recent prominent thoughts",
+  "You have a brief glimpse of the future",
+  "You grow a prehensile tail. The tail can be cut off without harming you.",
+  "You grow antlers and can communicate with animals for 1 hour",
+  "Your skin glows blindingly bright for the next minute",
+  "You become terrified of the sky for the next hour",
+  "You learn a secret about the world",
+  "Your make Nerve, Defiance, and Imagination tests with 4 dice for the next hour.",
+  "You are energized with magical power, take +1 to your next roll this scene",
+  "For one minute, time freezes for everything in the world except for you",
+  "For the next week, animals follow you around.",
+  "You suffer temporary amnesia for 1 hour.",
+  "You turn a random character invisible for the next minute",
+  "You become supercharged with static electricity. The next thing you touch marks 1 harm.",
+  "Pick a person you care about. They teleport to you",
+]
+
+export function getTempestSurge() {
+  return TempestSurges[Math.floor(Math.random() * TempestSurges.length)];
 }

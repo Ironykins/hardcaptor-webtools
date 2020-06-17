@@ -14,6 +14,9 @@
       <li class="pure-menu-item">
         <router-link class="pure-menu-link" to="/magicalburst">Magical Burst</router-link>
       </li>
+      <li v-if="isTempest" class="pure-menu-item">
+        <router-link class="pure-menu-link" to="/tempestsurge">Tempest Surge</router-link>
+      </li>
       <li class="pure-menu-item">
         <router-link class="pure-menu-link" to="/about">About</router-link>
       </li>
@@ -26,7 +29,9 @@ import { Component, Vue } from 'vue-property-decorator';
 
 @Component
 export default class SideNav extends Vue {
-  
+  private get isTempest() {
+    return this.$store.state.character.archetypeIdx === 5
+  }
 }
 </script>
 

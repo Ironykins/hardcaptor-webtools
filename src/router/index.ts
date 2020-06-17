@@ -32,6 +32,11 @@ const routes: Array<RouteConfig> = [
     path: '/magicalburst',
     name: 'Magical Burst',
     component: () => import(/* webpackChunkName: "magicalburst" */ '../views/MagicalBurst.vue')
+  },
+  {
+    path: '/tempestsurge',
+    name: 'Tempest Surge',
+    component: () => import(/* webpackChunkName: "tempestsurge" */ '../views/TempestSurge.vue')
   }
 ]
 

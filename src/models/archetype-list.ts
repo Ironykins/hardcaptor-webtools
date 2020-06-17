@@ -533,6 +533,130 @@ export default [
   },
 
 
+  {
+    name: "Tempest",
+    // Mark 3 experience when you...
+    expTriggers: [
+      "Succeed at a very high-risk and low-reward endeavor",
+      "Fix a terrible situation that you ultimately caused"
+    ],
+    featureList: [
+      {
+        name: "Tempest Alchemy",
+        description: `Describe a magical effect of any sort, then roll a D6 and consult the following:
+        1 - A Magical Burst occurs based on the described effect.
+        2 - The desired effect occurs, but it is horribly twisted and backfires in some way.
+        3 - Roll on the Tempest Surge table.
+        4 - Roll on the Tempest Surge table twice and pick either result.
+        5 - The desired effect occurs, but with reduced effect or a new complication
+        6 - The desired effect occurs.
+        `
+      },
+      {
+        name: "Harbinger of the Weird",
+        description: "As a downtime action, you may mark 1 Overcharge, and collaborate with the GM to describe an unlikely coincidence that happens to you. eg. Perhaps you meet your archnemesis in line at a coffee shop, or you trip over the entrance to the lair of the evil cult you’ve been pursuing, or you are mistaken for someone very important and find yourself giving orders to a group of shady henchmen."
+      },
+      {
+        name: "Local God",
+        description: "You are attuned to the forces of nature around where you live. The weather reflects your mood, people tend to have misfortune befall them when you think ill of them and have lucky breaks when you think positively about them. The clothing that you wear and the way that you speak inadvertently set trends. If these facts are discovered, ordinary people may start banding together to worship you as a cult deity."
+      },
+      {
+        name: "Cataclysm",
+        description: "Once per episode, You release any control you had over your magic and allow it to run wild. You rip fissures in the earth, cause earthquakes, and generally tear the environment up. All characters in the vicinity including you suffer 2 banes, you may remove up to 5 dice from each enemy dice pool, and non-magical structures, objects, and people are destroyed."
+      },
+    ],
+    abilityTrackNames: ["Stormchaser", "Catalyst"],
+    abilityList: [
+      // Level 0. Everyone gets all of these.
+      [
+        {
+          name: "Tempest Surge",
+          description: "Whenever you critically succeed on a magical test, or whenever you fail a magical test with 2 or more of the same value in your result set, your magic goes more out of control than normal. Roll on the tempest surge table. The GM can also make you roll on the table if they determine it’s narratively appropriate. If they do, you gain 1 experience."
+        },
+        {
+          name: "Storm's Volatility",
+          description: `
+            You gain a Volatility die. When you roll your volatility die, roll 1d6 for a random effect. You must roll this die at the beginning of each action phase.
+            1 - A player of your choice is attacked. Ignore all enemy abilities for this attack.
+            2 - Your choice of enemy rolls two dice into their dice pool.
+            3 - A player of your choice gains a status effect. Roll 1d6 to determine the effect. 
+            1-2 = Branded, 3-4 = Inspired, 5-6 = Strengthened
+            4 - You may reroll up to 3 dice in an enemy’s dice pool.
+            5 - Grant 1 guard token to a magical girl or liability.
+            6 - Remove a die from an enemy dice pool.
+          `
+        },
+        {
+          name: "Distort",
+          description: "During the action phase, you may spend a straight to reroll any number of dice in an enemy dice pool. You may repeat this action up to two times."
+        },
+        {
+          name: "Invoke Unpredictability",
+          description: "During the action phase, you may spend a guard token to roll your Volatility die."
+        },
+      ],
+      // Level 1
+      [
+        {
+          name: "Stormchase",
+          description: "When you rally, an ally of your choice who also rallied may reroll up to 3 dice in an enemy dice pool. For each 6 rolled this way, you or the ally may gain 1 guard token."
+        },
+        {
+          name: "Volatile Rally",
+          description: "When you rally, roll your volatility die once for each other ally that rallied."
+        },
+      ],
+      // Level 2
+      [
+        {
+          name: "Nullifying Front",
+          description: "You may spend any 3 dice whose values sum to 10 to remove any 3 enemy dice whose values also sum to 10."
+        },
+        {
+          name: "Unstable Vector",
+          description: "You may spend a bust to roll 3 dice. If you roll doubles, you may remove two dice from the enemy dice pool. If you roll triples, you may remove five dice from the enemy dice pool. Otherwise, gain 1 guard token."
+        },
+      ],
+      // Level 3
+      [
+        {
+          name: "Ionic Accumulation",
+          description: "At the start of the action phase, if all values in your hand are even, you may remove an even-valued die from the enemy’s dice pool. If all values are odd, you may remove an odd-valued die."
+        },
+        {
+          name: "Aftershocks",
+          description: "At the end of the action phase, if you rolled your Volatility die 3 or more times this round, you may cancel up to 2 dice from an enemy dice pool."
+        },
+      ],
+      // Level 4
+      [
+        {
+          name: "Storm Battery",
+          description: "When you experience fallout during combat, you may remove a die from each enemy dice pool."
+        },
+        {
+          name: "State Disruption",
+          description: "If you would gain a positive status effect, you may instead suffer a bane and remove up to 2 dice from an enemy dice pool."
+        },
+      ],
+      // Level 5
+      [
+        {
+          name: "Storm Body",
+          description: `At the start of the action phase, you may choose to activate Storm Body until the next end step.
+Whenever you suffer a bane, you may remove a die from an enemy dice pool.
+You must discard all guard tokens and may not gain guard tokens.
+You suffer a bane at the end of the action phase.
+`
+        },
+        {
+          name: "Additive Interference",
+          description: "Whenever you roll your storm’s volatility die, if the value rolled is equal to your current number of marked overcharge segments, you may cancel or re-roll a die in the enemy dice pool."
+        },
+      ],
+    ]
+  },
+
   // /*Template:*/
   // {
   //   name: "",
