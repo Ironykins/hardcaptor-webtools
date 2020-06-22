@@ -16,15 +16,15 @@ export default [
       },
       {
         name: "Knight’s Vigil",
-        description: "As a downtime action, you may designate a person or object to be your Ward. They remain your ward until harm befalls them or you designate a new ward. If the GM puts your ward in danger, they must tell you, and you can decide to start a scene in which you show up at the last possible moment to try to save or protect them."
+        description: "As a downtime action, you may designate a person or object to be your Ward. They remain your ward until you fail to protect them or you designate a new ward. If the GM puts your ward in danger, they must tell you, and you can decide to start a scene in which you show up at the last possible moment to try to save or protect them."
       },
       {
         name: "Petrifying Seal",
-        description: "You may spend a minute and mark 1 overcharge to turn any non magical being into a stone statue. The being must be willing or helpless. While in this state, they cannot be detected or harmed by magic. They are unconscious, but they can still dream. They remain in this state for 1 year or until you end the effect by marking 1 overcharge and touching them."
+        description: "You may spend a minute and mark 1 overcharge to turn a willing or helpless being into a stone statue. While in this state, they cannot be detected or harmed by magic. They remain in this state for 1 year or until you end the effect by marking 1 overcharge and touching them. While in this state, they are unconscious, but they can still dream."
       },
       {
         name: "Knight’s Reward",
-        description: "Whenever an ally activates an experience trigger for their archetype or experiences hope fallout, you may mark 2 hope."
+        description: "Whenever an ally activates an experience trigger for their archetype or has hope fallout, you may mark 2 hope."
       },
       
     ],
@@ -249,7 +249,7 @@ export default [
         },
         {
           name: "Crescendo",
-          description: "During the action phase, you may spend a straight to reduce an enemy’s power to zero until the end of the round."
+          description: "During the action phase, you may spend a straight to reduce an enemy’s power by 3 until the end of the round."
         },
         {
           name: "Eloquent Sway",
@@ -260,7 +260,7 @@ export default [
       [
         {
           name: "Harmonize",
-          description: "Whenever you rally, all magical girls that rallied may freely spend dice from the hands of other magical girls that also rallied as though they were in their own hands."
+          description: "Whenever you rally, all magical girls that rallied may freely spend each other's dice this round, as though those dice were in their own hand."
         },
         {
           name: "Captivate",
@@ -355,7 +355,7 @@ export default [
         },
         {
           name: "Oathbound's Smite",
-          description: "During the action phase, you may spend a straight to cancel any number of dice from an enemy dice pool, as long as none of those dice share a value."
+          description: "During the action phase, you may spend a straight to remove any number of dice from an enemy dice pool, as long as none of those dice share a value."
         },
         {
           name: "Reckless Attack",
@@ -414,7 +414,7 @@ export default [
         },
         {
           name: "Incursion",
-          description: "You and at least two other allies may each spend a set of 2 and any number of guard tokens. Each player may remove a number of enemy dice equal to the number of guard tokens they spent."
+          description: "You and at least two other allies may each spend a set of 2 and any number of guard tokens. Each player may cancel a number of enemy dice equal to the number of guard tokens they spent."
         },
       ],
     ]
@@ -430,34 +430,30 @@ export default [
     featureList: [
       {
         name: "Tinker",
-        description: `
-        You may spend a downtime action to create a magical artifact, alchemical concoction, or impossible contraption. Describe the properties of your creation, and then mark 1, 2, or 3 overcharge depending on the power of the effect. For example:
-          1 Overcharge = A clockwork bird, a love potion, a nail that magically seals a door.
-          3 Overcharge = An extra dimensional storage trunk, a magic motorcycle, a lantern that reveals the invisible, a permanent teleportation circle
-          2 Overcharge = Something in between
-        `
+        description: `Your downtime projects can create magical artifacts, alchemical concoctions, or impossible contraptions. Describe the properties of your creation, start a 6-segment project clock, and then mark 1, 2, or 3 overcharge depending on the power of the effect. For example:
+1 Overcharge = A clockwork bird, a love potion, a nail that magically seals a door.
+3 Overcharge = An extra dimensional storage trunk, a magic motorcycle, a lantern that reveals the invisible, a permanent teleportation circle
+2 Overcharge = Something in between`
       },
       {
         name: "Mastermind",
         description: `You gain the following:
-          Take +1 die on any test where you are looking for evidence or investigating, and the GM may tell you something unrelated but important that you discover along the way.
+          Take +1 die on any trait test where you are looking for evidence or investigating, and the GM may tell you something unrelated but important that you discover along the way.
           Once per scene, you may mark 1 overcharge and describe a flashback in which your character made specific preparations for something that has arisen in the narrative. The preparations must be something your character could feasibly have done, though you don’t need to explain how you knew this would happen. You’re just that smart.
           `
       },
       {
         name: "Applied Science",
-        description: "Whenever a youma is defeated, you can choose to take a sample of its remains. These samples are unstable, and you may only safely keep one at a time. You can spend a sample to fill an extra project clock segment when you work on a project, or take +1 die on a magical trait test."
+        description: "Whenever a youma is defeated, you can choose to take a sample of its remains. These samples are unstable, and you may only safely keep one at a time. You can spend a sample to fill an extra project clock segment when you work on a project, or to take +1 die on a magical trait test."
       },
       {
         name: "Divination",
-        description: `
-        You may mark 1 overcharge to do one of the following:
-          Scry - Specify any location you have previously visited, and perceive it as if you were there. If the area is magically protected, your perception is clouded, hazy, and sometimes shows false information.
-          Augury - Describe an entity, location, or course of action. The GM will give you a sign of weal if the future of the entity aligns with your goals and wellbeing, or a sign of woe if it does not. Alternatively, the GM can decide to give you more specific visions or premonitions about the entity.
-        `
+        description: `You may mark 1 overcharge to do one of the following:
+Scry - Specify any location you have previously visited, and perceive it as if you were there. If the area is magically protected, your perception is clouded, hazy, and sometimes shows false information.
+Augury - Describe an entity, location, or course of action. The GM will give you a sign of weal if the future of the entity aligns with your goals and wellbeing, or a sign of woe if it does not. Alternatively, the GM can decide to give you more specific visions or premonitions about the entity.`
       },
     ],
-    abilityTrackNames: ["Trickster", "Scientist"],
+    abilityTrackNames: ["Logician", "Schemer"],
     abilityList: [
       // Level 0. Everyone gets all of these.
       [
@@ -515,7 +511,7 @@ export default [
         },
         {
           name: "Seeker's Gambit",
-          description: "Whenever you reroll a die in the enemy’s dice pool, if the die’s new value is equal to your seeker die’s value, you may remove it."
+          description: "Whenever you reroll a die in the enemy’s dice pool, if the die’s new value is equal to your seeker die’s value, you may cancel it."
         },
       ],
       // Level 5
@@ -562,7 +558,7 @@ export default [
       },
       {
         name: "Cataclysm",
-        description: "Once per episode, You release any control you had over your magic and allow it to run wild. You rip fissures in the earth, cause earthquakes, and generally tear the environment up. All characters in the vicinity including you suffer 2 banes, you may remove up to 5 dice from each enemy dice pool, and non-magical structures, objects, and people are destroyed."
+        description: "Once per episode, You release any control you had over your magic and allow it to run wild. You rip fissures in the earth, cause earthquakes, and generally tear the environment up. All characters in the vicinity including you suffer 3 banes, you may remove up to 5 dice from each enemy dice pool, and non-magical structures, objects, and people are destroyed."
       },
     ],
     abilityTrackNames: ["Stormchaser", "Catalyst"],
