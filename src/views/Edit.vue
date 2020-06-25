@@ -24,11 +24,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import AttributesEditor from '@/components/AttributesEditor.vue';
-import RPDetailsEditor from '@/components/RPDetailsEditor.vue';
-import TalentSelectionEditor from '@/components/TalentSelectionEditor.vue';
-import FeatureSelectionEditor from '@/components/FeatureSelectionEditor.vue';
-import AbilitySelectionEditor from '@/components/AbilitySelectionEditor.vue';
+import AttributesEditor from '@/components/editCharacter/AttributesEditor.vue';
+import RPDetailsEditor from '@/components/editCharacter/RPDetailsEditor.vue';
+import TalentSelectionEditor from '@/components/editCharacter/TalentSelectionEditor.vue';
+import FeatureSelectionEditor from '@/components/editCharacter/FeatureSelectionEditor.vue';
+import AbilitySelectionEditor from '@/components/editCharacter/AbilitySelectionEditor.vue';
 
 @Component({
   name: "EditCharacter",

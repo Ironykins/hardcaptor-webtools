@@ -70,8 +70,8 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 import { CharacterSheet, Archetype, Talent, Feature, Ability } from '@/models/character-schema';
 import ArchetypeList from '@/models/archetype-list';
 import talentList from '@/models/talent-list';
-import RPDetails from '@/components/character/RPDetails.vue';
-import Attributes from '@/components/character/Attributes.vue';
+import RPDetails from '@/components/viewCharacter/RPDetails.vue';
+import Attributes from '@/components/viewCharacter/Attributes.vue';
 
 @Component({
   components: {

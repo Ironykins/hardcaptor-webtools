@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import SheetDisplay from '@/components/character/SheetDisplay.vue';
+import SheetDisplay from '@/components/viewCharacter/SheetDisplay.vue';
 
 @Component({
   components: {
