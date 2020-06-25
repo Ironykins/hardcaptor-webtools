@@ -18,6 +18,9 @@
         <router-link class="pure-menu-link" to="/tempestsurge">Tempest Surge</router-link>
       </li>
       <li class="pure-menu-item">
+        <router-link class="pure-menu-link" to="/importexport">Import/Export</router-link>
+      </li>
+      <li class="pure-menu-item">
         <router-link class="pure-menu-link" to="/about">About</router-link>
       </li>
     </ul>

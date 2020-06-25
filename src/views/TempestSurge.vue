@@ -17,7 +17,7 @@ import { getTempestSurge } from '@/models/magical-burst';
 @Component({
   name: "TempestSurge"
 })
-export default class MagicalBurst extends Vue {
+export default class TempestSurge extends Vue {
   private tempestSurge = getTempestSurge();
 
   private generate() {

@@ -13,6 +13,9 @@ export default new Vuex.Store({
     randomizeCharacter(state) {
       state.character = getRandomCharacter(state.character.advancements)
     },
+    setCharacter(state, {character}) {
+      state.character = character;
+    },
     modTrait(state, {attkey, amount}) {
       if(amount + state.character.traits[attkey] <= 3 
         && amount + state.character.traits[attkey] >= 0
@@ -73,7 +76,7 @@ export default new Vuex.Store({
         ]
         state.character.abilities[level] = idx;
       }
-    }
+    },
   },
   actions: {
 

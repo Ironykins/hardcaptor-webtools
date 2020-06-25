@@ -37,6 +37,11 @@ const routes: Array<RouteConfig> = [
     path: '/tempestsurge',
     name: 'Tempest Surge',
     component: () => import(/* webpackChunkName: "tempestsurge" */ '../views/TempestSurge.vue')
+  },
+  {
+    path: '/importexport',
+    name: 'Import/Export',
+    component: () => import(/* webpackChunkName: "tempestsurge" */ '../views/ImportExport.vue')
   }
 ]
 
