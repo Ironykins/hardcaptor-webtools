@@ -1,6 +1,11 @@
 <template>
   <div>
     <h3>Abilities</h3>
+    <span>
+      <span class="reminder" v-if="hasAvailableAbilities">
+        You have abilities to choose!
+      </span>
+    </span>
     <table class="pure-table archetype-table">
       <thead>
         <td colspan="3">
@@ -58,6 +63,10 @@ export default class AbilitySelectionEditor extends Vue {
     return this.$store.commit('selectAbility', {level, idx: option})
   }
 
+  private get hasAvailableAbilities() {
+    return this.$store.state.character.abilities.length < this.$store.state.character.availableAbilities;
+  }
+
   private levelDisabled(idx: number): boolean {
     return idx > this.$store.state.character.availableAbilities;
   }
@@ -95,5 +104,10 @@ export default class AbilitySelectionEditor extends Vue {
   color: darkgrey;
   background: #dddddd;
   cursor: not-allowed;
+}
+
+.reminder {
+  color: green;
+  font-weight: bold;
 }
 </style>

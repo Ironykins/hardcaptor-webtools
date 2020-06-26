@@ -1,7 +1,12 @@
 <template>
   <div>
-    <span class="availablepints">
-      Available Points: {{availablePoints}}
+    <span class="availablepoints" v-bind:class="{pointsinvalid: availablePoints < 0, pointsattention: availablePoints > 0}">
+      <span v-if="availablePoints === 0">
+        All points allocated
+      </span>
+      <span v-else>
+        Available Points: {{availablePoints}}
+      </span>
     </span>
     <table class="attribute-table pure-table pure-table-horizontal">
       <thead>
@@ -136,5 +141,15 @@ export default class AttributesEditor extends Vue {
 
 .centered {
   text-align: center;
+}
+
+.pointsinvalid {
+  color: red;
+  font-weight: bold;
+}
+
+.pointsattention {
+  color: green;
+  font-weight: bold;
 }
 </style>

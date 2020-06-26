@@ -2,7 +2,7 @@
   <div class="edit">
     <div class="page-header">
       <h1>Character Creator</h1>
-      <button type="button" class="pure-button pure-button-primary" v-on:click="randomizeCharacter()">Randomize</button>
+      <button type="button" class="pure-button button-primary" v-on:click="randomizeCharacter()">Randomize</button>
     </div>
     <div class="pure-g">
       <div class="pure-u-1 pure-u-md-2-3">

@@ -11,7 +11,7 @@
           <fieldset class="pure-group">
             <textarea id="export-area" readonly class="mb1 fill-width" rows="10" :value="exportJson" placeholder="Paste JSON data here."></textarea>
           </fieldset>
-          <button type="button" class="fill-width pure-button pure-button-primary" v-on:click="copyJsonExport()">Copy to Clipboard</button>
+          <button type="button" class="fill-width pure-button button-primary" v-on:click="copyJsonExport()">Copy to Clipboard</button>
           <div v-if="error">
             <p>{{error}}</p>
           </div>
@@ -22,7 +22,7 @@
             <fieldset class="pure-group">
               <textarea id="import-area" class="mb1 fill-width" rows="10" v-model="importJson" placeholder="Paste JSON data here."></textarea>
             </fieldset>
-            <button type="button" class="fill-width pure-button pure-button-primary" v-on:click="performImport()">Import</button>
+            <button type="button" class="fill-width pure-button button-primary" v-on:click="performImport()">Import</button>
           </div>
         </div>
       </form>

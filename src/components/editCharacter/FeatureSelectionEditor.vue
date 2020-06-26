@@ -1,6 +1,11 @@
 <template>
   <div>
     <h3>Features</h3>
+    <span>
+      <span class="reminder" v-if="features.length < availableFeatures">
+        You have features to choose!
+      </span>
+    </span>
     <MultiSelectionModal
       selectionName="Features"
       :allItems="allFeatures" 
@@ -55,4 +60,8 @@ export default class FeatureSelectionEditor extends Vue {
 </script>
 
 <style scoped>
+.reminder {
+  color: green;
+  font-weight: bold;
+}
 </style>

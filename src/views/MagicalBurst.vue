@@ -2,7 +2,7 @@
   <div class="magical-burst">
     <div class="page-header">
       <h1>Magical Burst Generator</h1>
-      <button type="button" class="pure-button pure-button-primary" v-on:click="generate()">Generate</button>
+      <button type="button" class="pure-button button-primary" v-on:click="generate()">Generate</button>
     </div>
     <div class="page-body">
       <p>Your magic causes a magical burst!</p>

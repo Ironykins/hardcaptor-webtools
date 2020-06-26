@@ -1,6 +1,11 @@
 <template>
   <div>
     <h3>Talents</h3>
+    <span>
+      <span class="reminder" v-if="talents.length < availableTalents">
+        You have talents to choose!
+      </span>
+    </span>
     <MultiSelectionModal
       selectionName="Talents"
       :allItems="allTalents" 
@@ -56,4 +61,8 @@ export default class TalentSelectionEditor extends Vue {
 </script>
 
 <style scoped>
+.reminder {
+  color: green;
+  font-weight: bold;
+}
 </style>

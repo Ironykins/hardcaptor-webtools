@@ -1,11 +1,12 @@
 <template>
   <div>
-    <button v-on:click="showModal">Select {{this.selectionName}}</button>
+    <button class="pure-button button-primary" v-on:click="showModal">Select {{this.selectionName}}</button>
 
     <div class="modal" v-bind:class="{active: displayModal}">
       <div class="modal-content">
         <span class="close" v-on:click="hideModal">&times;</span>
         <h3>{{selectedItems.length}} / {{allowedSelections}} {{this.selectionName}} Selected</h3>
+        <span class="subtitle">Click on a selected item to deselect it.</span>
         <div class="modal-body">
           <div v-for="(item, idx) in allItems" :key="item.name">
             <div class="option" v-on:click="toggleItem(idx)" v-bind:class="{selected: itemSelected(idx)}">
@@ -48,6 +49,10 @@ export default class MultiSelectionModal extends Vue {
 </script>
 
 <style scoped>
+.subtitle {
+  font-size: 0.8em;
+}
+
  /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */

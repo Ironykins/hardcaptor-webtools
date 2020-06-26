@@ -44,7 +44,6 @@ export default class App extends Vue {
   color: #2c3e50;
 }
 
-
 #app {
     position: relative;
     left: 0;
@@ -157,15 +156,4 @@ export default class App extends Vue {
     -o-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
 }
-
-
-/* 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-} */
 </style>

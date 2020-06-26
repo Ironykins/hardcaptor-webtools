@@ -5,6 +5,7 @@ import router from './router'
 import store from './store'
 import 'purecss/build/pure-min.css'
 import 'purecss/build/grids-responsive-min.css'
+import './globals.css'
 
 Vue.config.productionTip = false
 
