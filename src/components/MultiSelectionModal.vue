@@ -2,8 +2,8 @@
   <div>
     <button class="pure-button button-primary" v-on:click="showModal">Select {{this.selectionName}}</button>
 
-    <div class="modal" v-bind:class="{active: displayModal}">
-      <div class="modal-content">
+    <div class="modal" v-bind:class="{active: displayModal}" v-on:click="hideModal">
+      <div class="modal-content" @click.stop>
         <span class="close" v-on:click="hideModal">&times;</span>
         <h3>{{selectedItems.length}} / {{allowedSelections}} {{this.selectionName}} Selected</h3>
         <span class="subtitle">Click on a selected item to deselect it.</span>
@@ -81,12 +81,12 @@ export default class MultiSelectionModal extends Vue {
   position: relative;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animatetop;
-  animation-duration: 0.4s
+  animation-duration: 0.4s;
 }
 
 .modal-body {
-  overflow: auto; /* Enable scroll if needed */
-  max-height: 80vh;
+  overflow: auto;
+  max-height: 70vh;
 }
 
 /* Add Animation */
