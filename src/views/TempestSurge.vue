@@ -32,8 +32,7 @@ export default class TempestSurge extends Vue {
 }
 
 .page-body {
-  margin-left: 25%;
-  margin-top: 2em;
-  width: 50%;
+  text-align: center;
+  margin: 2em;
 }
 </style>
