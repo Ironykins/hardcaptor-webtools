@@ -1,6 +1,8 @@
 <template>
   <div>
-    Available Points: {{availablePoints}}
+    <span class="availablepints">
+      Available Points: {{availablePoints}}
+    </span>
     <table class="attribute-table pure-table pure-table-horizontal">
       <thead>
         <td><b>Passion</b></td>

@@ -17,7 +17,7 @@
       <li v-if="isTempest" class="pure-menu-item">
         <router-link class="pure-menu-link" to="/tempestsurge">Tempest Surge</router-link>
       </li>
-      <li class="pure-menu-item">
+      <li class="pure-menu-item menu-item-divided">
         <router-link class="pure-menu-link" to="/importexport">Import/Export</router-link>
       </li>
       <li class="pure-menu-item">
@@ -34,6 +34,10 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class SideNav extends Vue {
   private get isTempest() {
     return this.$store.state.character.archetypeIdx === 5
+  }
+
+  private get routeMatch() {
+    return this.$route.name
   }
 }
 </script>
@@ -65,26 +69,24 @@ export default class SideNav extends Vue {
   .pure-menu .menu-item-divided {
       border-top: 1px solid #333;
   }
-      /*
-      Change color of the anchor links on hover/focus.
-      */
-      .pure-menu li a:hover,
-      .pure-menu li a:focus {
-          background: #333;
-      }
-
+  
   /*
-  This styles the selected menu item `<li>`.
+  Change color of the anchor links on hover/focus.
   */
-  .pure-menu-selected {
-      background: #1f8dd6;
-  } 
+  li a:hover,
+  li a:focus {
+    background: #333;
+  }
 
-  /*
-  This styles a link within a selected menu item `<li>`.
-  */
-  .pure-menu-selected a {
-      color: #fff;
+  .router-link-exact-active {
+    background: purple;
+    color: white;
+  }
+
+  .router-link-exact-active:hover,
+  .router-link-exact-active:focus {
+    background: purple;
+    color: white;
   }
 
   /*
