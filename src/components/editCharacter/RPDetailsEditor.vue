@@ -60,7 +60,7 @@ export default class RPDetailsEditor extends Vue {
   }
 
   updateArchetype(e: InputEvent) {
-    this.$store.commit('editArchetype', {archetypeIdx: (e.target as HTMLInputElement).value || null})
+    this.$store.commit('editArchetype', {archetypeIdx: parseInt((e.target as HTMLInputElement).value) || null})
   }
 
   // Advancement Stuff

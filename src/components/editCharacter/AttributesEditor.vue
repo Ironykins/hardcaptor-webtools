@@ -16,25 +16,25 @@
       </thead>
       <tr>
         <td>Nerve</td>
-        <td class="shaded-cell">{{this.character.traits.nerve > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.nerve > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.nerve > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="circle-cell shaded-cell">{{this.character.traits.nerve > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.nerve > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.nerve > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
         <td><button v-on:click="modTrait('nerve', -1)">-</button></td>
         <td><button v-on:click="modTrait('nerve', 1)">+</button></td>
       </tr>
       <tr>
         <td>Defiance</td>
-        <td class="shaded-cell">{{this.character.traits.defiance > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.defiance > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.defiance > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="circle-cell shaded-cell">{{this.character.traits.defiance > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.defiance > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.defiance > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
         <td><button v-on:click="modTrait('defiance', -1)">-</button></td>
         <td><button v-on:click="modTrait('defiance', 1)">+</button></td>
       </tr>
       <tr>
         <td>Imagination</td>
-        <td class="shaded-cell">{{this.character.traits.imagination > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.imagination > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.imagination > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="circle-cell shaded-cell">{{this.character.traits.imagination > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.imagination > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.imagination > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
         <td><button v-on:click="modTrait('imagination', -1)">-</button></td>
         <td><button v-on:click="modTrait('imagination', 1)">+</button></td>
       </tr>
@@ -46,25 +46,25 @@
       </thead>
       <tr>
         <td>Analysis</td>
-        <td class="shaded-cell">{{this.character.traits.analysis > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.analysis > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.analysis > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="circle-cell shaded-cell">{{this.character.traits.analysis > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.analysis > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.analysis > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
         <td><button v-on:click="modTrait('analysis', -1)">-</button></td>
         <td><button v-on:click="modTrait('analysis', 1)">+</button></td>
       </tr>
       <tr>
         <td>Observation</td>
-        <td class="shaded-cell">{{this.character.traits.observation > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.observation > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.observation > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="circle-cell shaded-cell">{{this.character.traits.observation > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.observation > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.observation > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
         <td><button v-on:click="modTrait('observation', -1)">-</button></td>
         <td><button v-on:click="modTrait('observation', 1)">+</button></td>
       </tr>
       <tr>
         <td>Subterfuge</td>
-        <td class="shaded-cell">{{this.character.traits.subterfuge > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.subterfuge > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.subterfuge > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="circle-cell shaded-cell">{{this.character.traits.subterfuge > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.subterfuge > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.subterfuge > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
         <td><button v-on:click="modTrait('subterfuge', -1)">-</button></td>
         <td><button v-on:click="modTrait('subterfuge', 1)">+</button></td>
       </tr>
@@ -76,25 +76,25 @@
       </thead>
       <tr>
         <td>Adaptability</td>
-        <td class="shaded-cell">{{this.character.traits.adaptability > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.adaptability > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.adaptability > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="circle-cell shaded-cell">{{this.character.traits.adaptability > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.adaptability > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.adaptability > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
         <td><button v-on:click="modTrait('adaptability', -1)">-</button></td>
         <td><button v-on:click="modTrait('adaptability', 1)">+</button></td>
       </tr>
       <tr>
         <td>Charisma</td>
-        <td class="shaded-cell">{{this.character.traits.charisma > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.charisma > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.charisma > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="circle-cell shaded-cell">{{this.character.traits.charisma > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.charisma > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.charisma > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
         <td><button v-on:click="modTrait('charisma', -1)">-</button></td>
         <td><button v-on:click="modTrait('charisma', 1)">+</button></td>
       </tr>
       <tr>
         <td>Empathy</td>
-        <td class="shaded-cell">{{this.character.traits.empathy > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.empathy > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.empathy > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="circle-cell shaded-cell">{{this.character.traits.empathy > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.empathy > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="circle-cell">{{this.character.traits.empathy > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
         <td><button v-on:click="modTrait('empathy', -1)">-</button></td>
         <td><button v-on:click="modTrait('empathy', 1)">+</button></td>
       </tr>
@@ -137,6 +137,10 @@ export default class AttributesEditor extends Vue {
 
 .shaded-cell {
   background-color: #dfdfdf;
+}
+
+.circle-cell {
+  font-size: 1.3em;
 }
 
 .centered {
