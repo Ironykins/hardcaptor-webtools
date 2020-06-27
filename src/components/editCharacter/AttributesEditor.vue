@@ -16,25 +16,25 @@
       </thead>
       <tr>
         <td>Nerve</td>
-        <td class="circle-cell shaded-cell">{{this.character.traits.nerve > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.nerve > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.nerve > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.nerve > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.nerve > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.nerve > 2}"/></td>
         <td><button v-on:click="modTrait('nerve', -1)">-</button></td>
         <td><button v-on:click="modTrait('nerve', 1)">+</button></td>
       </tr>
       <tr>
         <td>Defiance</td>
-        <td class="circle-cell shaded-cell">{{this.character.traits.defiance > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.defiance > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.defiance > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.defiance > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.defiance > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.defiance > 2}"/></td>
         <td><button v-on:click="modTrait('defiance', -1)">-</button></td>
         <td><button v-on:click="modTrait('defiance', 1)">+</button></td>
       </tr>
       <tr>
         <td>Imagination</td>
-        <td class="circle-cell shaded-cell">{{this.character.traits.imagination > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.imagination > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.imagination > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.imagination > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.imagination > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.imagination > 2}"/></td>
         <td><button v-on:click="modTrait('imagination', -1)">-</button></td>
         <td><button v-on:click="modTrait('imagination', 1)">+</button></td>
       </tr>
@@ -46,25 +46,25 @@
       </thead>
       <tr>
         <td>Analysis</td>
-        <td class="circle-cell shaded-cell">{{this.character.traits.analysis > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.analysis > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.analysis > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.analysis > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.analysis > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.analysis > 2}"/></td>
         <td><button v-on:click="modTrait('analysis', -1)">-</button></td>
         <td><button v-on:click="modTrait('analysis', 1)">+</button></td>
       </tr>
       <tr>
         <td>Observation</td>
-        <td class="circle-cell shaded-cell">{{this.character.traits.observation > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.observation > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.observation > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.observation > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.observation > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.observation > 2}"/></td>
         <td><button v-on:click="modTrait('observation', -1)">-</button></td>
         <td><button v-on:click="modTrait('observation', 1)">+</button></td>
       </tr>
       <tr>
         <td>Subterfuge</td>
-        <td class="circle-cell shaded-cell">{{this.character.traits.subterfuge > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.subterfuge > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.subterfuge > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.subterfuge > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.subterfuge > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.subterfuge > 2}"/></td>
         <td><button v-on:click="modTrait('subterfuge', -1)">-</button></td>
         <td><button v-on:click="modTrait('subterfuge', 1)">+</button></td>
       </tr>
@@ -76,25 +76,25 @@
       </thead>
       <tr>
         <td>Adaptability</td>
-        <td class="circle-cell shaded-cell">{{this.character.traits.adaptability > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.adaptability > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.adaptability > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.adaptability > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.adaptability > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.adaptability > 2}"/></td>
         <td><button v-on:click="modTrait('adaptability', -1)">-</button></td>
         <td><button v-on:click="modTrait('adaptability', 1)">+</button></td>
       </tr>
       <tr>
         <td>Charisma</td>
-        <td class="circle-cell shaded-cell">{{this.character.traits.charisma > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.charisma > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.charisma > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.charisma > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.charisma > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.charisma > 2}"/></td>
         <td><button v-on:click="modTrait('charisma', -1)">-</button></td>
         <td><button v-on:click="modTrait('charisma', 1)">+</button></td>
       </tr>
       <tr>
         <td>Empathy</td>
-        <td class="circle-cell shaded-cell">{{this.character.traits.empathy > 0 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.empathy > 1 ? "&#x25CF;" : "&#x25CB;"}}</td>
-        <td class="circle-cell">{{this.character.traits.empathy > 2 ? "&#x25CF;" : "&#x25CB;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.empathy > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.empathy > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.empathy > 2}"/></td>
         <td><button v-on:click="modTrait('empathy', -1)">-</button></td>
         <td><button v-on:click="modTrait('empathy', 1)">+</button></td>
       </tr>
@@ -131,16 +131,28 @@ export default class AttributesEditor extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.dot {
+  background-color: black;
+  display: inline-block;
+}
+
+td > span {
+  height: 1em;
+  width: 1em;
+  margin: 1px;
+  vertical-align: middle;
+  border: 0.5px solid black;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 .attribute-table td {
   padding: 2px;
 }
 
 .shaded-cell {
   background-color: #dfdfdf;
-}
-
-.circle-cell {
-  font-size: 1.3em;
 }
 
 .centered {

@@ -9,21 +9,21 @@
       </thead>
       <tr>
         <td>Nerve</td>
-        <td class="shaded-cell">{{this.character.traits.nerve > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.nerve > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.nerve > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.nerve > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.nerve > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.nerve > 2}"/></td>
       </tr>
       <tr>
         <td>Defiance</td>
-        <td class="shaded-cell">{{this.character.traits.defiance > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.defiance > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.defiance > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.defiance > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.defiance > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.defiance > 2}"/></td>
       </tr>
       <tr>
         <td>Imagination</td>
-        <td class="shaded-cell">{{this.character.traits.imagination > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.imagination > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.imagination > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.imagination > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.imagination > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.imagination > 2}"/></td>
       </tr>
 
       <thead>
@@ -34,21 +34,21 @@
       </thead>
       <tr>
         <td>Analysis</td>
-        <td class="shaded-cell">{{this.character.traits.analysis > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.analysis > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.analysis > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.analysis > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.analysis > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.analysis > 2}"/></td>
       </tr>
       <tr>
         <td>Observation</td>
-        <td class="shaded-cell">{{this.character.traits.observation > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.observation > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.observation > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.observation > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.observation > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.observation > 2}"/></td>
       </tr>
       <tr>
         <td>Subterfuge</td>
-        <td class="shaded-cell">{{this.character.traits.subterfuge > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.subterfuge > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.subterfuge > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.subterfuge > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.subterfuge > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.subterfuge > 2}"/></td>
       </tr>
 
       <thead>
@@ -59,23 +59,27 @@
       </thead>
       <tr>
         <td>Adaptability</td>
-        <td class="shaded-cell">{{this.character.traits.adaptability > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.adaptability > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.adaptability > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.adaptability > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.adaptability > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.adaptability > 2}"/></td>
       </tr>
       <tr>
         <td>Charisma</td>
-        <td class="shaded-cell">{{this.character.traits.charisma > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.charisma > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.charisma > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.charisma > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.charisma > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.charisma > 2}"/></td>
       </tr>
       <tr>
         <td>Empathy</td>
-        <td class="shaded-cell">{{this.character.traits.empathy > 0 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.empathy > 1 ? "&#11044;" : "&#9711;"}}</td>
-        <td>{{this.character.traits.empathy > 2 ? "&#11044;" : "&#9711;"}}</td>
+        <td class="shaded-cell"><span v-bind:class="{dot: this.character.traits.empathy > 0}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.empathy > 1}"/></td>
+        <td><span v-bind:class="{dot: this.character.traits.empathy > 2}"/></td>
       </tr>
     </table>
+    <p><b>Number of Rerolls</b>: {{this.character.attributes.logic}}</p>
+    <p><b>Dice Per Reroll</b>: {{this.character.attributes.passion}}</p>
+    <p><b>Guard Limit</b>: {{this.character.attributes.devotion}}</p>
+
   </div>
 </template>
 
@@ -93,6 +97,21 @@ export default class Attributes extends Vue {
 <style scoped>
 .attribute-table td {
   padding: 2px;
+}
+
+.dot {
+  background-color: black;
+  display: inline-block;
+}
+
+td > span {
+  height: 1em;
+  width: 1em;
+  margin: 1px;
+  vertical-align: middle;
+  border: 0.5px solid black;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 .shaded-cell {
