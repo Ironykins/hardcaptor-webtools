@@ -2,8 +2,13 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import getRandomCharacter from '@/models/character-generator'
 import { CharacterSheet } from '@/models/character-schema'
+import VuexPersistence from 'vuex-persist'
 
 Vue.use(Vuex)
+ 
+const vuexLocal = new VuexPersistence({
+  storage: window.localStorage
+})
 
 export default new Vuex.Store({
   state: {
@@ -83,5 +88,8 @@ export default new Vuex.Store({
   },
   modules: {
 
-  }
+  },
+  plugins: [
+    vuexLocal.plugin
+  ]
 })
