@@ -1,90 +1,27 @@
 // Data structures that represent hardcaptor characters
-export class CharacterSheet {
-    /////////////
-    // RP Details
-    name = "";
-    magicMark = "";
-    magicWeapon = "";
-    magicTheme = "";
-    magicCostume = "";
-    worldTies = "";
+export type Character = {
+  /////////////
+  // RP Details
+  name: string;
+  magicMark: string;
+  magicWeapon: string;
+  magicTheme: string;
+  magicCostume: string;
+  worldTies: string;
 
-    ////////////////////
-    // Mechanical things
-    advancements = 0;
-
-    // Reference archetype by index in global archetype list.
-    archetypeIdx = 0;
-
-    // Reference a talent by index of global talents list.
-    talents: number[] = [];
-
-    // Reference a feature by index of archetype features list.
-    features: number[] = [];
-
-    // Index is your archetype level. 
-    // Value is 0 for first option, 1 for second.
-    abilities: number[] = [];
-
-    traits: {[key: string]: number} = {
-      // Passion
-      nerve: 0,
-      defiance: 0,
-      imagination: 0,
-
-      // Logic
-      analysis: 0,
-      observation: 0,
-      subterfuge: 0,
-
-      // Devotion
-      adaptability: 0,
-      charisma: 0,
-      empathy: 0,
-    };
-
-    get attributes() {
-      return {
-        passion: (this.traits.nerve&&1) + (this.traits.defiance&&1) + (this.traits.imagination&&1),
-        logic: (this.traits.analysis&&1) + (this.traits.observation&&1) + (this.traits.subterfuge&&1),
-        devotion: (this.traits.adaptability&&1) + (this.traits.charisma&&1) + (this.traits.empathy&&1),
-      }
-    }
-
-    // Get total Number of Trait Points available at your advancement level.
-    get availableTraits(): number {
-      return Math.ceil(this.advancements/2)+6;
-    }
-
-    get assignedTraits(): number {
-      let assigned = 0;
-      Object.keys(this.traits).forEach((traitKey) => {
-        assigned += this.traits[traitKey];
-      })
-      return assigned;
-    }
-
-    // Total number of talents available at your advancement level.
-    get availableTalents(): number {
-      return Math.floor(this.advancements/2)+2;
-    }
-
-    // Total number of features available at your advancement level.
-    get availableFeatures(): number {
-      const features = Math.floor(this.advancements/2)+1;
-      return features > 4 ? 4 : features;
-    }
-
-    // Total number of archetype abilities available at your advancement level.
-    get availableAbilities(): number {
-      return Math.ceil(this.advancements/2);
-    }
-
-    // More mutable things. Clocks and such.
-    hope = 0;
-    harm = 0;
-    overcharge = 0;
-    stress = 0;
+  ////////////////////
+  // Mechanical things
+  advancements: number;
+  archetypeIdx: number;
+  talents: number[];
+  features: number[];
+  abilities: number[];
+  traits: {[key: string]: number};
+  // More mutable things. Clocks and such.
+  hope: number;
+  harm: number;
+  overcharge: number;
+  stress: number;
 }
 
 export type Archetype = {
@@ -111,4 +48,72 @@ export type Feature = {
 export type Ability = {
   name: string;
   description: string;
+}
+
+/// Logic Goes here.
+export function newCharacter(): Character {
+  return {
+    name: "New Character",
+    magicMark: "",
+    magicWeapon: "",
+    magicTheme: "",
+    magicCostume: "",
+    worldTies: "",
+    advancements: 0,
+    archetypeIdx: 0,
+    talents: [],
+    features: [],
+    abilities: [],
+    traits: {
+      // Passion
+      nerve: 0,
+      defiance: 0,
+      imagination: 0,
+      // Logic
+      analysis: 0,
+      observation: 0,
+      subterfuge: 0,
+      // Devotion
+      adaptability: 0,
+      charisma: 0,
+      empathy: 0,
+    },
+    hope: 0,
+    harm: 0,
+    overcharge: 0,
+    stress: 0
+  }
+}
+
+export function charAttributes(char: Character) {
+  return {
+    passion: (char.traits.nerve&&1) + (char.traits.defiance&&1) + (char.traits.imagination&&1),
+    logic: (char.traits.analysis&&1) + (char.traits.observation&&1) + (char.traits.subterfuge&&1),
+    devotion: (char.traits.adaptability&&1) + (char.traits.charisma&&1) + (char.traits.empathy&&1),
+  }
+}
+
+export function charAvailableTraits(char: Character) {
+  return Math.ceil(char.advancements/2)+6;
+}
+
+export function charAssignedTraits(char: Character) {
+  let assigned = 0;
+  Object.keys(char.traits).forEach((traitKey) => {
+    assigned += char.traits[traitKey];
+  })
+  return assigned;
+}
+
+export function charAvailableTalents(char: Character) {
+  return Math.floor(char.advancements/2)+2;
+}
+
+export function charAvailableFeatures(char: Character) {
+  const features = Math.floor(char.advancements/2)+1;
+  return features > 4 ? 4 : features;
+}
+
+export function charAvailableAbilities(char: Character) {
+  return Math.ceil(char.advancements/2);
 }

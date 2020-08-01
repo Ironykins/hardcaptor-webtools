@@ -67,7 +67,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { CharacterSheet, Archetype, Talent, Feature, Ability } from '@/models/character-schema';
+import { Character, Archetype, Talent, Feature, Ability } from '@/models/character-schema';
 import ArchetypeList from '@/models/archetype-list';
 import talentList from '@/models/talent-list';
 import RPDetails from '@/components/viewCharacter/RPDetails.vue';
@@ -80,7 +80,7 @@ import Attributes from '@/components/viewCharacter/Attributes.vue';
   },
 })
 export default class SheetDisplay extends Vue {
-  @Prop() private character!: CharacterSheet;
+  @Prop() private character!: Character;
   
   get archetype(): Archetype {
     return ArchetypeList[this.character.archetypeIdx];

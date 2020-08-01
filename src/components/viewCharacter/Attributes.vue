@@ -76,20 +76,24 @@
         <td><span v-bind:class="{dot: this.character.traits.empathy > 2}"/></td>
       </tr>
     </table>
-    <p><b>Number of Rerolls</b>: {{this.character.attributes.logic}}</p>
-    <p><b>Dice Per Reroll</b>: {{this.character.attributes.passion}}</p>
-    <p><b>Guard Limit</b>: {{this.character.attributes.devotion}}</p>
+    <p><b>Number of Rerolls</b>: {{attributes.logic}}</p>
+    <p><b>Dice Per Reroll</b>: {{attributes.passion}}</p>
+    <p><b>Guard Limit</b>: {{attributes.devotion}}</p>
 
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { CharacterSheet } from '@/models/character-schema';
+import { Character, charAttributes } from '@/models/character-schema';
 
 @Component
 export default class Attributes extends Vue {
-  @Prop() private character!: CharacterSheet;
+  @Prop() private character!: Character;
+
+  get attributes() {
+    return charAttributes(this.character)
+  }
 }
 </script>
 

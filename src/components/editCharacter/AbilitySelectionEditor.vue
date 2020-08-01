@@ -43,7 +43,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Archetype } from '@/models/character-schema';
+import { Archetype, charAvailableAbilities } from '@/models/character-schema';
 import archetypeList from '@/models/archetype-list';
 
 @Component
@@ -51,24 +51,28 @@ export default class AbilitySelectionEditor extends Vue {
   private displayModal = false;
 
   get archetype(): Archetype {
-    return archetypeList[this.$store.state.character.archetypeIdx]
+    return archetypeList[this.$store.getters.character.archetypeIdx]
   }
 
   // True if the character has this ability marked as selected.
   private abilitySelected(level: number, option: number): boolean {
-    return this.$store.state.character.abilities[level] === option;
+    return this.$store.getters.character.abilities[level] === option;
   }
 
   private selectAbility(level: number, option: number) {
     return this.$store.commit('selectAbility', {level, idx: option})
   }
 
+  private get availableAbilities() {
+    return charAvailableAbilities(this.$store.getters.character)
+  }
+
   private get hasAvailableAbilities() {
-    return this.$store.state.character.abilities.length < this.$store.state.character.availableAbilities;
+    return this.$store.getters.character.abilities.length < this.availableAbilities;
   }
 
   private levelDisabled(idx: number): boolean {
-    return idx > this.$store.state.character.availableAbilities;
+    return idx > this.availableAbilities;
   }
 
 }

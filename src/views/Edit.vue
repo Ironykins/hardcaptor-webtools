@@ -41,10 +41,8 @@ import AbilitySelectionEditor from '@/components/editCharacter/AbilitySelectionE
   }
 })
 export default class EditCharacter extends Vue {
-  private advancements = 0
-
   get character() {
-    return this.$store.state.character
+    return this.$store.getters.character
   }
 
   private randomizeCharacter() {

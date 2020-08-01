@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { CharacterSheet } from '@/models/character-schema';
+import { Character, newCharacter as charConstructor, charAvailableAbilities } from '@/models/character-schema';
 import TalentList from '@/models/talent-list';
 import ArchetypeList from '@/models/archetype-list';
 
@@ -44,13 +44,13 @@ export default class ImportExport extends Vue {
   private error = "";
 
   private get exportJson() {
-    return JSON.stringify(this.$store.state.character)
+    return JSON.stringify(this.$store.getters.character)
   }
 
   private performImport() {
     try {
       const imported = JSON.parse(this.importJson);
-      const newCharacter = new CharacterSheet();
+      const newCharacter = charConstructor();
 
       // Verify string properties.
       if(imported.name && typeof imported.name !== 'string') throw new Error("name should be a string");
@@ -82,7 +82,7 @@ export default class ImportExport extends Vue {
 
       // Index is your archetype level. 
       if(imported.abilities && imported.abilities.some((x: number) => x >= 2)
-      || imported.abilities.length > newCharacter.availableAbilities)
+      || imported.abilities.length > charAvailableAbilities(newCharacter))
         throw new Error("Invalid ability list");
 
       // Traits

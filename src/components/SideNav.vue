@@ -8,6 +8,9 @@
       <li class="pure-menu-item">
         <router-link class="pure-menu-link" to="/summary">View Character</router-link>
       </li>
+      <li class="pure-menu-item">
+        <router-link class="pure-menu-link" to="/selectchar">Select Character</router-link>
+      </li>
       <li class="pure-menu-item menu-item-divided">
         <router-link class="pure-menu-link" to="/enemyref">Enemy Abilities</router-link>
       </li>
@@ -33,7 +36,7 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class SideNav extends Vue {
   private get isTempest() {
-    return this.$store.state.character.archetypeIdx === 5
+    return this.$store.getters.character.archetypeIdx === 5
   }
 
   private get routeMatch() {

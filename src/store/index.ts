@@ -1,87 +1,112 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import getRandomCharacter from '@/models/character-generator'
-import { CharacterSheet } from '@/models/character-schema'
+import { newCharacter, charAssignedTraits, charAvailableTraits, charAvailableAbilities, charAvailableFeatures, charAvailableTalents } from '@/models/character-schema'
 import VuexPersistence from 'vuex-persist'
 
 Vue.use(Vuex)
  
 const vuexLocal = new VuexPersistence({
-  storage: window.localStorage
+  storage: window.localStorage,
 })
 
 export default new Vuex.Store({
   state: {
-    character: new CharacterSheet()
+    characterList: [newCharacter()],
+    selectedCharacterIdx: 0
   },
   mutations: {
     randomizeCharacter(state) {
-      state.character = getRandomCharacter(state.character.advancements)
+      const advancements = state.characterList[state.selectedCharacterIdx].advancements;
+      state.characterList[state.selectedCharacterIdx] = getRandomCharacter(advancements);
+      Vue.set(state, 'characterList', [...state.characterList]);
     },
     setCharacter(state, {character}) {
-      state.character = character;
+      state.characterList[state.selectedCharacterIdx] = character;
+      Vue.set(state, 'characterList', [...state.characterList]);
     },
     modTrait(state, {attkey, amount}) {
-      if(amount + state.character.traits[attkey] <= 3 
-        && amount + state.character.traits[attkey] >= 0
-        && (amount + state.character.assignedTraits <= state.character.availableTraits ||
-          amount + state.character.assignedTraits < state.character.assignedTraits ))
-        state.character.traits[attkey] += amount;
+      const character = state.characterList[state.selectedCharacterIdx];
+      if(amount + character.traits[attkey] <= 3 
+        && amount + character.traits[attkey] >= 0
+        && (amount + charAssignedTraits(character) <= charAvailableTraits(character)||
+          amount + charAssignedTraits(character) < charAvailableTraits(character) ))
+        character.traits[attkey] += amount;
     },
     editArchetype(state, {archetypeIdx}) {
-      state.character.archetypeIdx = archetypeIdx;
+      const character = state.characterList[state.selectedCharacterIdx];
+      character.archetypeIdx = archetypeIdx;
       // Reset their archetype-specific selections
-      state.character.features = [];
-      state.character.abilities = [];
+      character.features = [];
+      character.abilities = [];
     },
     editRPDetails(state, {name, theme, weapon, costume, mark}) {
-      state.character.name = name || state.character.name;
-      state.character.magicTheme = theme || state.character.magicTheme;
-      state.character.magicWeapon = weapon || state.character.magicWeapon;
-      state.character.magicCostume = costume || state.character.magicCostume;
-      state.character.magicMark = mark || state.character.magicMark;
+      const character = state.characterList[state.selectedCharacterIdx];
+      character.name = name || character.name;
+      character.magicTheme = theme || character.magicTheme;
+      character.magicWeapon = weapon || character.magicWeapon;
+      character.magicCostume = costume || character.magicCostume;
+      character.magicMark = mark || character.magicMark;
     },
     addAdvancement(state) {
-      state.character.advancements += 1;
+      state.characterList[state.selectedCharacterIdx].advancements += 1;
     },
     removeAdvancement(state) {
-      // TODO: Do what to subtract things from the character's arsenal?
-      if(state.character.advancements >= 1) {
-        state.character.advancements -= 1;
-        state.character.features = state.character.features.slice(0, state.character.availableFeatures);
-        state.character.talents = state.character.talents.slice(0, state.character.availableTalents);
-        state.character.abilities = state.character.abilities.slice(0, state.character.availableAbilities);
+      const character = state.characterList[state.selectedCharacterIdx];
+      if(character.advancements >= 1) {
+        character.advancements -= 1;
+        character.features = character.features.slice(0, charAvailableFeatures(character));
+        character.talents = character.talents.slice(0, charAvailableTalents(character));
+        character.abilities = character.abilities.slice(0, charAvailableAbilities(character));
       }
     },
     addTalent(state, {idx}) {
-      if(state.character.talents.indexOf(idx) === -1) {
-        state.character.talents.push(idx)
+      const character = state.characterList[state.selectedCharacterIdx];
+      if(character.talents.indexOf(idx) === -1) {
+        character.talents.push(idx)
       }
     },
     removeTalent(state, {idx}) {
-      if(state.character.talents[idx] !== undefined) {
-        state.character.talents.splice(idx, 1)
+      const character = state.characterList[state.selectedCharacterIdx];
+      if(character.talents[idx] !== undefined) {
+        character.talents.splice(idx, 1)
       }
     },
     addFeature(state, {idx}) {
-      if(state.character.features.indexOf(idx) === -1) {
-        state.character.features.push(idx)
+      const character = state.characterList[state.selectedCharacterIdx];
+      if(character.features.indexOf(idx) === -1) {
+        character.features.push(idx)
       }
     },
     removeFeature(state, {idx}) {
-      if(state.character.features[idx] !== undefined) {
-        state.character.features.splice(idx, 1)
+      const character = state.characterList[state.selectedCharacterIdx];
+      if(character.features[idx] !== undefined) {
+        character.features.splice(idx, 1)
       }
     },
     selectAbility(state, {level, idx}) {
+      const character = state.characterList[state.selectedCharacterIdx];
       // Determine if we can have anything for that level.
-      if(level < state.character.availableAbilities) {
-        state.character.abilities = [
-          ...state.character.abilities
+      if(level < charAvailableAbilities(character)) {
+        character.abilities = [
+          ...character.abilities
         ]
-        state.character.abilities[level] = idx;
+        character.abilities[level] = idx;
       }
     },
+
+    selectCharacter(state, {idx}) {
+      if(idx >= 0 && idx < state.characterList.length)
+        state.selectedCharacterIdx = idx;
+    },
+    deleteCharacter(state, {idx}) {
+      if(state.characterList[idx] !== undefined) {
+        state.characterList.splice(idx, 1);
+      }
+    },
+    addCharacter(state) {
+      state.characterList.push(newCharacter())
+    }
   },
   actions: {
 
@@ -91,5 +116,10 @@ export default new Vuex.Store({
   },
   plugins: [
     vuexLocal.plugin
-  ]
+  ],
+  getters: {
+    character: state => {
+      return state.characterList[state.selectedCharacterIdx]
+    }
+  }
 })

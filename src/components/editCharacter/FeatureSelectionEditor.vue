@@ -10,7 +10,7 @@
       selectionName="Features"
       :allItems="allFeatures" 
       :allowedSelections="availableFeatures" 
-      :selectedItems="this.$store.state.character.features"
+      :selectedItems="this.$store.getters.character.features"
       :toggleItem="toggleFeature"
     />
     <div v-for="(features) in features" :key="features.name">
@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Feature } from '@/models/character-schema';
+import { Feature, charAvailableFeatures } from '@/models/character-schema';
 import archetypeList from '@/models/archetype-list';
 import MultiSelectionModal from '@/components/MultiSelectionModal.vue';
 
@@ -34,26 +34,26 @@ import MultiSelectionModal from '@/components/MultiSelectionModal.vue';
 })
 export default class FeatureSelectionEditor extends Vue {
   get allFeatures(): Feature[] {
-    return archetypeList[this.$store.state.character.archetypeIdx].featureList;
+    return archetypeList[this.$store.getters.character.archetypeIdx].featureList;
   }
 
   get availableFeatures() {
-    return this.$store.state.character.availableFeatures;
+    return charAvailableFeatures(this.$store.getters.character);
   }
 
   get features(): Feature[] {
-    return this.$store.state.character.features.map((featureIdx: number) => {
-      return archetypeList[this.$store.state.character.archetypeIdx].featureList[featureIdx]
+    return this.$store.getters.character.features.map((featureIdx: number) => {
+      return archetypeList[this.$store.getters.character.archetypeIdx].featureList[featureIdx]
     })
   }
 
   toggleFeature(idx: number) {
-    const selectedIdx = this.$store.state.character.features.indexOf(idx);
+    const selectedIdx = this.$store.getters.character.features.indexOf(idx);
     if(selectedIdx !== -1) {
       return this.$store.commit('removeFeature', {idx: selectedIdx})
     }
 
-    if(this.$store.state.character.features.length < this.$store.state.character.availableFeatures)
+    if(this.$store.getters.character.features.length < this.availableFeatures)
       return this.$store.commit('addFeature', {idx})
   }
 }

@@ -104,15 +104,15 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { CharacterSheet, Archetype } from '@/models/character-schema';
+import { Character, Archetype, charAvailableTraits, charAssignedTraits } from '@/models/character-schema';
 import ArchetypeList from '@/models/archetype-list';
 
 @Component
 export default class AttributesEditor extends Vue {
-  @Prop() private character!: CharacterSheet;
+  @Prop() private character!: Character;
 
   get availablePoints() {
-    return this.character.availableTraits - this.character.assignedTraits;
+    return charAvailableTraits(this.character) - charAssignedTraits(this.character);
   }
 
   get archetype(): Archetype {

@@ -10,7 +10,7 @@
       selectionName="Talents"
       :allItems="allTalents" 
       :allowedSelections="availableTalents" 
-      :selectedItems="this.$store.state.character.talents"
+      :selectedItems="this.$store.getters.character.talents"
       :toggleItem="toggleTalent"
     />
 
@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Talent } from '@/models/character-schema';
+import { Talent, charAvailableTalents } from '@/models/character-schema';
 import talentList from '@/models/talent-list';
 import MultiSelectionModal from '@/components/MultiSelectionModal.vue';
 
@@ -39,22 +39,22 @@ export default class TalentSelectionEditor extends Vue {
   }
 
   get availableTalents() {
-    return this.$store.state.character.availableTalents;
+    return charAvailableTalents(this.$store.getters.character);
   }
 
   get talents(): Talent[] {
-    return this.$store.state.character.talents.map((talentIdx: number) => {
+    return this.$store.getters.character.talents.map((talentIdx: number) => {
       return talentList[talentIdx];
     })
   }
 
   toggleTalent(idx: number) {
-    const selectedIdx = this.$store.state.character.talents.indexOf(idx);
+    const selectedIdx = this.$store.getters.character.talents.indexOf(idx);
     if(selectedIdx !== -1) {
       return this.$store.commit('removeTalent', {idx: selectedIdx})
     }
 
-    if(this.$store.state.character.talents.length < this.$store.state.character.availableTalents)
+    if(this.$store.getters.character.talents.length < this.availableTalents)
       return this.$store.commit('addTalent', {idx})
   }
 }

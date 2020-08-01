@@ -26,12 +26,12 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { CharacterSheet, Archetype } from '@/models/character-schema';
+import { Character, Archetype } from '@/models/character-schema';
 import ArchetypeList from '@/models/archetype-list';
 
 @Component
 export default class RPDetails extends Vue {
-  @Prop() private character!: CharacterSheet;
+  @Prop() private character!: Character;
   
   get archetype(): Archetype {
     return ArchetypeList[this.character.archetypeIdx];

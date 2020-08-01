@@ -43,12 +43,12 @@ import archetypeList from '@/models/archetype-list';
 
 @Component
 export default class RPDetailsEditor extends Vue {
-  get name() { return this.$store.state.character.name; }
-  get theme() { return this.$store.state.character.magicTheme; }
-  get weapon() { return this.$store.state.character.magicWeapon; }
-  get costume() { return this.$store.state.character.magicCostume; }
-  get mark() { return this.$store.state.character.magicMark; }
-  get archetype() { return this.$store.state.character.archetypeIdx; }
+  get name() { return this.$store.getters.character.name; }
+  get theme() { return this.$store.getters.character.magicTheme; }
+  get weapon() { return this.$store.getters.character.magicWeapon; }
+  get costume() { return this.$store.getters.character.magicCostume; }
+  get mark() { return this.$store.getters.character.magicMark; }
+  get archetype() { return this.$store.getters.character.archetypeIdx; }
   get archetypes() {return archetypeList;}
 
   updateField(e: InputEvent) {
@@ -68,7 +68,7 @@ export default class RPDetailsEditor extends Vue {
 
   // Advancement Stuff
   get advancements() {
-    return this.$store.state.character.advancements;
+    return this.$store.getters.character.advancements;
   }
 
   addAdvancement() {

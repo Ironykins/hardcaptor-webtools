@@ -19,7 +19,7 @@ export default class Character extends Vue {
   }
 
   get character() {
-    return this.$store.state.character
+    return this.$store.getters.character
   }
 
   private randomizeCharacter() {
