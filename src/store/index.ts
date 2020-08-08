@@ -21,10 +21,6 @@ export default new Vuex.Store({
       state.characterList[state.selectedCharacterIdx] = getRandomCharacter(advancements);
       Vue.set(state, 'characterList', [...state.characterList]);
     },
-    setCharacter(state, {character}) {
-      state.characterList[state.selectedCharacterIdx] = character;
-      Vue.set(state, 'characterList', [...state.characterList]);
-    },
     modTrait(state, {attkey, amount}) {
       const character = state.characterList[state.selectedCharacterIdx];
       if(amount + character.traits[attkey] <= 3 
@@ -102,10 +98,19 @@ export default new Vuex.Store({
     deleteCharacter(state, {idx}) {
       if(state.characterList[idx] !== undefined) {
         state.characterList.splice(idx, 1);
+        if(idx === state.selectedCharacterIdx) {
+          state.selectedCharacterIdx = 0;
+        }
       }
     },
-    addCharacter(state) {
-      state.characterList.push(newCharacter())
+    addCharacter(state, {character}) {
+      let newIdx = state.selectedCharacterIdx;
+      if(character)
+        newIdx = state.characterList.push(character)  
+      else
+        newIdx = state.characterList.push(newCharacter())
+
+      state.selectedCharacterIdx = newIdx-1;
     }
   },
   actions: {
@@ -119,7 +124,7 @@ export default new Vuex.Store({
   ],
   getters: {
     character: state => {
-      return state.characterList[state.selectedCharacterIdx]
+      return state.characterList[state.selectedCharacterIdx] || newCharacter();
     }
   }
 })

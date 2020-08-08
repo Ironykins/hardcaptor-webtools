@@ -32,7 +32,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import { Character, newCharacter as charConstructor, charAvailableAbilities } from '@/models/character-schema';
+import { newCharacter as charConstructor, charAvailableAbilities } from '@/models/character-schema';
 import TalentList from '@/models/talent-list';
 import ArchetypeList from '@/models/archetype-list';
 
@@ -111,7 +111,7 @@ export default class ImportExport extends Vue {
       if(imported.abilities) newCharacter.abilities = imported.abilities;
       if(imported.traits) newCharacter.traits = imported.traits;
 
-      this.$store.commit("setCharacter", {
+      this.$store.commit("addCharacter", {
         character: newCharacter
       })
       this.$router.push('summary')

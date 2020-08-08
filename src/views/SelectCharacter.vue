@@ -6,9 +6,21 @@
     </div>
     <div class="page-body">
       <div v-for="(character,idx) in charList" :key="idx">
-        Name: {{character.name}}
-        <button type="button" class="pure-button" v-on:click="selectCharacter(idx)">Select</button>
-        <button type="button" class="pure-button" v-on:click="deleteCharacter(idx)">Delete</button>
+        <div class="option" v-on:click="selectCharacter(idx)" v-bind:class="{selected: itemSelected(idx)}">
+          <div>
+            <h3>{{character.name}}</h3>
+            <p>
+              {{archetypeName(character.archetypeIdx)}} of {{character.magicTheme || "the undecided"}}, 
+              wields {{character.magicWeapon || "nothing"}}, 
+              clad in {{character.magicCostume || "indecision"}}
+            </p>
+          </div>
+          <div class="rightside">
+            <button v-on:click="deleteCharacter(idx)" class="pure-button button-primary">
+              <i class="gg-trash"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -16,17 +28,22 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import ArchetypeList from '../models/archetype-list';
 
 @Component({
-  name: "TempestSurge"
+  name: "SelectCharacter"
 })
-export default class TempestSurge extends Vue {
+export default class SelectCharacter extends Vue {
   private get charList() {
     return this.$store.state.characterList;
   }
 
+  private archetypeName(idx: number) {
+    return ArchetypeList[idx].name;
+  }
+
   private addCharacter() {
-    return this.$store.commit("addCharacter")
+    return this.$store.commit("addCharacter", {})
   }
 
   private selectCharacter(idx: number) {
@@ -34,7 +51,13 @@ export default class TempestSurge extends Vue {
   }
 
   private deleteCharacter(idx: number) {
-    return this.$store.commit("deleteCharacter", {idx})
+    if(this.charList.length > 1) {
+      return this.$store.commit("deleteCharacter", {idx})
+    }
+  }
+
+  private itemSelected(idx: number) {
+    return this.$store.state.selectedCharacterIdx === idx
   }
 }
 </script>
@@ -45,7 +68,27 @@ export default class TempestSurge extends Vue {
 }
 
 .page-body {
-  text-align: center;
+  /* text-align: center; */
   margin: 2em;
 }
+
+.option {
+  padding: 1em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.option.selected {
+  background: #c58dc0;
+}
+
+.rightside {
+  margin-left: auto;
+  display: inline;
+  left: 5px;
+  
+}
+
 </style>
